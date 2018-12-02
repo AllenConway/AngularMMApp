@@ -1,12 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    {{ title }}!
+    {{ title }}
   </h1>
 </div>
 <nav>
     <button class="btn btn-primary" [routerLink]=" ['/dashboard'] ">Dashboard</button>
     <button class="btn btn-secondary" [routerLink]=" ['/cabins'] ">Cabins</button>
+    <button mat-raised-button [matMenuTriggerFor]="adminMenu" >Admin</button>
+    <mat-menu #adminMenu="matMenu">
+      <button mat-menu-item [routerLink]=" ['/admin-cabin'] ">Cabins</button>
+    </mat-menu>
   <!-- <ul>
     <li><a href="" [routerLink]="['/dashboard']">Dashboard</a></li>
     <li><a href="" [routerLink]="['/cabins']">Cabins</a></li>

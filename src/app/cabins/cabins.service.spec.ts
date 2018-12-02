@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { CabinsService } from './cabins.service';
-import { Cabin } from './cabin';
+import { Cabin } from './models/cabin';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('CabinsService', () => {

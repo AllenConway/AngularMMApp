@@ -1,4 +1,4 @@
-import { Cabin } from './cabin';
+import { Cabin } from './';
 
 export const CABINS: Cabin[] = [
     {

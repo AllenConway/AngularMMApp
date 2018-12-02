@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+.admin-grid-component-container {
+
+    table {
+        width: 100%;
+      }
+      
+      .mat-form-field {
+        font-size: 14px;
+        width: 100%;
+      }
+      
+      td, th {
+        width: 25%;
+      }
+
+    // @extend .mat-elevation-z8;
+}
+
+.admin-button{
+    .mat-button, .mat-raised-button{
+        background-color:red !important;
+    } 
+}
+
+.mat-button, .mat-raised-button{
+    background-color:#6c757d;
+    color: #fff;
+} 
+
+.mat-button, .mat-raised-button .mat-button-focus-overlay {
+    background-color: #555C62;
+  }
+
+  .no-hover-effect.mat-button.mat-primary .mat-button-focus-overlay,
+.no-hover-effect.mat-button.mat-accent .mat-button-focus-overlay,
+.no-hover-effect.mat-button.mat-warn .mat-button-focus-overlay
+{
+  background-color: green;
+}

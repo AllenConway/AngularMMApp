@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Location } from '@angular/common';
-import { Cabin } from './cabin';
+import { Cabin } from './models/cabin';
 // import { CABINS } from './mock-cabins';
 import { CabinsService } from './cabins.service';
 import { Observable } from 'rxjs/Observable';
@@ -34,15 +34,15 @@ export class CabinDetailComponent implements OnInit, OnDestroy {
     // Iteration 2:
     // getCabins returns an Observable, so subscribe to the async data,
     // and use fat arrow syntax to assign data to our class property via function
-    // this.cabinsService.getCabins().subscribe(data => this.onCabinsLoaded(data));
+    this.cabinsService.getCabins().subscribe(data => this.onCabinsLoaded(data));
 
     // Iteration 3:
-    window.setTimeout(() => {
-      this.cabinsSubscription = this.cabinsService.getCabinsChanged$.subscribe(data => this.onCabinsLoaded(data));
-      window.setTimeout(() => {
-        this.cabinsService.getCabins();
-      }, 5000);
-    }, 10000);
+    // window.setTimeout(() => {
+    //   this.cabinsSubscription = this.cabinsService.getCabinsChanged$.subscribe(data => this.onCabinsLoaded(data));
+    //   window.setTimeout(() => {
+    //     this.cabinsService.getCabins();
+    //   }, 5000);
+    // }, 10000);
 
 
 

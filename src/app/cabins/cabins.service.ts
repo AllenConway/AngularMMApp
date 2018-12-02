@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { Cabin } from './cabin';
+import { Cabin } from './models/cabin';
 // import { CABINS } from './mock-cabins';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -44,27 +44,27 @@ export class CabinsService {
   //   return CABINS;
   // }
 
-  // getCabins(): Observable<Cabin[]> {
-  //   return this.httpClient.get<Cabin[]>(this.url);
-  // }
-
-  getCabins() {
-    // window.setTimeout(() => {
-      this.httpClient.get<Cabin[]>(this.url).subscribe(data => {
-
-        // // Observable
-        // if (data && this.getCabinsObserver) {
-        //   this.getCabinsObserver.next(data);
-        // }
-
-        // Subject and BehaviorSubject
-        if (data && this.getCabinsSource) {
-          this.getCabinsSource.next(data);
-        }
-
-      });
-    // }, 10000);
-
+  getCabins(): Observable<Cabin[]> {
+    return this.httpClient.get<Cabin[]>(this.url);
   }
+
+  // getCabins() {
+  //   // window.setTimeout(() => {
+  //     this.httpClient.get<Cabin[]>(this.url).subscribe(data => {
+
+  //       // // Observable
+  //       // if (data && this.getCabinsObserver) {
+  //       //   this.getCabinsObserver.next(data);
+  //       // }
+
+  //       // Subject and BehaviorSubject
+  //       if (data && this.getCabinsSource) {
+  //         this.getCabinsSource.next(data);
+  //       }
+
+  //     });
+  //   // }, 10000);
+
+  // }
 
 }
