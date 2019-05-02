@@ -1,14 +1,14 @@
 <h3>Cabins List</h3>
-
+<!-- Use the async pipe in ng to auto subscribe/unsububscribe.
+  It will wait until cabins$ | async has evaluated and bind to 'cabins' variable -->
 <div *ngIf="(cabins$ | async) as cabins; else loading">
   <p>Please select a cabin below for its details</p>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let cabin of cabins" (click)="selectCabin(cabin)">
-      <a routerLink="/detail/{{cabin.id}}">
+      <a routerLink="/cabins/detail/{{cabin.id}}">
         <span>{{cabin.id}}</span> {{cabin.name}}
       </a>
     </li>
   </ul>
 </div>
 <ng-template #loading>Loading User Data...</ng-template>
-<!-- <app-cabin-detail *ngIf="selectedCabin" [cabin]="selectedCabin"></app-cabin-detail> -->

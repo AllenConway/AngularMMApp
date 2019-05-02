@@ -23,7 +23,7 @@ export class CabinDetailComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute,
     private location: Location,
     private cabinsService: CabinsService) {
-    this.cabinsService.getCabins();
+    // this.cabinsService.getCabins();
   }
 
   ngOnInit() {
@@ -34,15 +34,16 @@ export class CabinDetailComponent implements OnInit, OnDestroy {
     // Iteration 2:
     // getCabins returns an Observable, so subscribe to the async data,
     // and use fat arrow syntax to assign data to our class property via function
-    this.cabinsService.getCabins().subscribe(data => this.onCabinsLoaded(data));
+    // this.cabinsService.getCabins().subscribe(data => this.onCabinsLoaded(data));
 
     // Iteration 3:
-    // window.setTimeout(() => {
-    //   this.cabinsSubscription = this.cabinsService.getCabinsChanged$.subscribe(data => this.onCabinsLoaded(data));
+   // window.setTimeout(() => {
+       this.cabinsSubscription = this.cabinsService.getCabinsChanged$.subscribe(data => this.onCabinsLoaded(data));
+       this.cabinsService.getCabins();
     //   window.setTimeout(() => {
     //     this.cabinsService.getCabins();
     //   }, 5000);
-    // }, 10000);
+   // }, 1000);
 
 
 

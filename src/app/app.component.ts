@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Welcome to Mountain Cabin Vacations Inc.';
+  title = 'Mountain Cabin Vacations';
+  className = 'Magenic Masters LIVE! class';
+  today: number = Date.now();
 }

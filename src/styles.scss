@@ -1,6 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 // @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0 0 10px;
+  padding: 25px;
+}
+
+footer {
+  background-color: lightgrey;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 25px;
+  width: 100%;
+  overflow: hidden;
+}
+
 .admin-grid-component-container {
 
     table {
