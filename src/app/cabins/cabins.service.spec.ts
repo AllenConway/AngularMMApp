@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { CabinsService } from './cabins.service';
 import { Cabin } from './models/cabin';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('CabinsService', () => {
   beforeEach(() => {
@@ -21,7 +21,7 @@ describe('CabinsService', () => {
   }));
 
   // This is an integration test and NOT a good idea
-  it('should call CabinsService and return real data', (done: DoneFn) => {
+  xit('should call CabinsService and return real data', (done: DoneFn) => {
     // expect(cabinsService.getCabins()[0].id).toEqual(1);
 
     cabinsService.getCabinsChanged$.subscribe(value => {

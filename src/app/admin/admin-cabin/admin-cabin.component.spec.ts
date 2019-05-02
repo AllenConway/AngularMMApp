@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminCabinComponent } from './admin-cabin.component';
+import { MatFormFieldModule, MatTableModule, MatCheckboxModule, MatDialogModule } from '@angular/material';
 
 describe('AdminCabinComponent', () => {
   let component: AdminCabinComponent;
@@ -8,6 +9,12 @@ describe('AdminCabinComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatCheckboxModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatTableModule
+      ],
       declarations: [ AdminCabinComponent ]
     })
     .compileComponents();

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,6 +9,9 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        NgbModule
+      ],
       declarations: [ DashboardComponent ]
     })
     .compileComponents();
