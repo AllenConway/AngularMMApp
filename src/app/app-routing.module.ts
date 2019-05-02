@@ -10,8 +10,7 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'cabins', loadChildren: './cabins/cabins.module#CabinsModule'},
-  {path: 'admin-cabin', component: AdminCabinComponent},
-  {path: 'detail/:id', loadChildren: './cabins/cabins.module#CabinsModule' },
+  {path: 'admin-cabin', component: AdminCabinComponent}
 ];
 
 @NgModule({
