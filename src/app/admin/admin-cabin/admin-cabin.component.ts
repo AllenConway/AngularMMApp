@@ -18,8 +18,8 @@ export class AdminCabinComponent implements OnInit {
   selection: SelectionModel<Cabin>;
   rowSelected: any;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(public dialog: MatDialog) {
     const initialSelection = [];

@@ -9,7 +9,7 @@ import { AdminCabinComponent } from './admin/admin-cabin/admin-cabin.component';
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'cabins', loadChildren: './cabins/cabins.module#CabinsModule'},
+  {path: 'cabins', loadChildren: () => import('./cabins/cabins.module').then(m => m.CabinsModule)},
   {path: 'admin-cabin', component: AdminCabinComponent}
 ];
 
