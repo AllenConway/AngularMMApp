@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminCabinComponent } from './admin/admin-cabin/admin-cabin.component';
+import { AuthGuard } from './@core/auth/auth.guard';
 
 // routes typically have (2) properties
 // path = string for the URL
@@ -9,8 +10,8 @@ import { AdminCabinComponent } from './admin/admin-cabin/admin-cabin.component';
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'cabins', loadChildren: () => import('./cabins/cabins.module').then(m => m.CabinsModule)},
-  {path: 'admin-cabin', component: AdminCabinComponent}
+  {path: 'cabins', loadChildren: () => import('./cabins/cabins.module').then(m => m.CabinsModule), canLoad: [AuthGuard]},
+  {path: 'admin-cabin', component: AdminCabinComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
