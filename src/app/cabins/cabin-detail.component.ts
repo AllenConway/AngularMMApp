@@ -25,8 +25,8 @@ export class CabinDetailComponent implements OnInit, OnDestroy {
     private cabinsService: CabinsService) {
 
     // Iteration 3: If this line is called with no subscription, data is loaded into the observable in the service,
-    // but subscription on line 44 won't pick up data as next isn't called subsequently unless line 46 is uncommented to force data be returned. 
-    // This is all to show how the different types of observables behave. Just because we subscribed, doesn't mean 
+    // but subscription on line 44 won't pick up data as next isn't called subsequently unless line 46 is uncommented to force data be returned.
+    // This is all to show how the different types of observables behave. Just because we subscribed, doesn't mean
     // we will get data. For that we need a BehaviorSubject which will stream the last know value
     // this.cabinsService.getCabins();
   }
@@ -42,7 +42,7 @@ export class CabinDetailComponent implements OnInit, OnDestroy {
     // and use fat arrow syntax to assign data to our class property via function
     // this.cabinsService.getCabins().subscribe(data => this.onCabinsLoaded(data));
 
-    // Iteration 4: If the timeout is added, and line 31 is uncommented, it shows an observable that has already broadcast its information 
+    // Iteration 4: If the timeout is added, and line 31 is uncommented, it shows an observable that has already broadcast its information
     // and we don't get previously streamed value. We must call getCabins again to make observable broadcast data
     //  window.setTimeout(() => {
     //     // Iteration 3/4/5: subscribe to exposed observable on the service
