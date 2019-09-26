@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CabinsService } from '../cabins/cabins.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -10,9 +12,11 @@ describe('DashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        HttpClientModule,
         NgbModule
       ],
-      declarations: [ DashboardComponent ]
+      declarations: [ DashboardComponent ],
+      providers: [ CabinsService ]
     })
     .compileComponents();
   }));

@@ -24,10 +24,10 @@ export class CabinListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Iteration 1: Uses no observables downstream
-     this.cabins$ = of(this.cabinsService.getCabins());
+    //  this.cabins$ = of(this.cabinsService.getCabins());
 
     // Iteration 2: Uses returned observable directly
-    // this.cabins$ = this.cabinsService.getCabins();
+    this.cabins$ = this.cabinsService.getCabins();
 
     // All other iterations using Observables downstream
     // Note: if out method returned an Observable instead of the Cabin[] data,

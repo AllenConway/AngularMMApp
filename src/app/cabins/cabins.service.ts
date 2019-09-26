@@ -47,14 +47,14 @@ export class CabinsService {
   }
 
   // Iteration 1: raw data return without observables
-  getCabins(): Cabin[] {
-    return CABINS;
-  }
+  // getCabins(): Cabin[] {
+  //   return CABINS;
+  // }
 
   // Iteration 2: return the observable directly
-  // getCabins(): Observable<Cabin[]> {
-  //   return this.httpClient.get<Cabin[]>(this.url);
-  // }
+  getCabins(): Observable<Cabin[]> {
+    return this.httpClient.get<Cabin[]>(this.url);
+  }
 
   // Iteration 3 & 4: call next on the observable so anyone subscribing can get the updated data
   // getCabins() {

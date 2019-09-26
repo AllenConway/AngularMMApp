@@ -3,28 +3,17 @@
     <h3>
       Welcome to Mountain View Vacations
     </h3>
-    <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true">
-      <ng-template ngbSlide>
-        <img src="../../assets/images/Cabin1.jpg" alt="Mountain View" style="width:100%;">
-        <div class="carousel-caption">
-          <h3>Mountain View</h3>
-          <p>Smoky Mountain West</p>
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <img src="../../assets/images/Cabin2.jpg" alt="Hillside Escape" style="width:100%;">
-        <div class="carousel-caption">
-          <h3>Hillside Escape</h3>
-          <p>Smoky Mountain North</p>
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <img src="../../assets/images/Cabin3.jpg" alt="Bear Tracks" style="width:100%;">
-        <div class="carousel-caption">
-          <h3>"Bear Tracks</h3>
-          <p>Smoky Mountain South</p>
-        </div>
-      </ng-template>
-    </ngb-carousel>
+    <ng-container *ngIf="(cabins$ | async) as cabins; else loading">
+      <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true">
+        <ng-template ngbSlide *ngFor="let cabin of cabins">
+          <img src="{{cabin.imageUrl}}" alt="{{cabin.name}}" style="width:100%;">
+          <div class="carousel-caption">
+            <h3>{{cabin.name}}</h3>
+            <p>{{cabin.location}}</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </ng-container>
   </div>
+  <ng-template #loading>Loading User Data...</ng-template>
 </div>

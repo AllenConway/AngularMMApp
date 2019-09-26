@@ -3,4 +3,5 @@ export interface Cabin {
     name: string;
     location: string;
     occupancy: number;
+    imageUrl: string;
   }

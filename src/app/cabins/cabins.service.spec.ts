@@ -34,7 +34,7 @@ describe('CabinsService', () => {
   it('should call CabinsService using spyOn and return mock data', () => {
     // Arrange
     const getCabinsMock: Cabin[] = [
-      { id: 123, name: 'Big Bear Cabin', location: 'East Mountain Cabins', occupancy: 8 }
+      { id: 123, name: 'Big Bear Cabin', location: 'East Mountain Cabins', occupancy: 8, imageUrl: '' }
     ];
     const cabinServiceSpy = spyOn(cabinsService, 'getCabins').and.returnValue(getCabinsMock);
     // Act
@@ -47,7 +47,7 @@ describe('CabinsService', () => {
     // Arrange
     const getCabinsFake = () => {
       return [
-        { id: 100, name: 'Big Bear Cabin', location: 'East Mountain Cabins', occupancy: 8 }
+        { id: 100, name: 'Big Bear Cabin', location: 'East Mountain Cabins', occupancy: 8, imageUrl: '' }
       ];
     };
     const cabinServiceSpy = spyOn(cabinsService, 'getCabins').and.callFake(getCabinsFake);
