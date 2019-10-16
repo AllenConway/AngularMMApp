@@ -65,13 +65,17 @@ export class AdminCabinComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: Cabin) => {
       if (result) {
-      // Deselect the row now that the edit operation has completed
-      this.selection.toggle(this.rowSelected);
-      // Find and update the Cabin object to update in the bound data
-      const cabinIndex = this.gridData.findIndex(cabinUpdated => cabinUpdated.id === result.id);
-      this.gridData[cabinIndex] = result;
-      // Refresh the grid data
-      this.dataSource = new MatTableDataSource(this.gridData);
+        // Todo: in order for the other areas of the app that use Cabin data to be updated,
+        // the observable in cabins.service.ts must be updated to call next(). Needs an update method.
+        // Legitamitely, thhis would happen via an http call
+
+        // Deselect the row now that the edit operation has completed
+        this.selection.toggle(this.rowSelected);
+        // Find and update the Cabin object to update in the bound data
+        const cabinIndex = this.gridData.findIndex(cabinUpdated => cabinUpdated.id === result.id);
+        this.gridData[cabinIndex] = result;
+        // Refresh the grid data
+        this.dataSource = new MatTableDataSource(this.gridData);
       }
 
     });

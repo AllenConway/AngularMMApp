@@ -4,20 +4,20 @@
       "name": "Mountain View",
       "location": "Smoky Mountain West",
       "occupancy": 4,
-      "url": "../../assets/images/Cabin1.jpg"
+      "imageUrl": "../../assets/images/Cabin1.jpg"
     },
     {
       "id": 2,
       "name": "Hillside Escape",
       "location": "Smoky Mountain North",
       "occupancy": 6,
-      "url": "../../assets/images/Cabin2.jpg"
+      "imageUrl": "../../assets/images/Cabin2.jpg"
     },
     {
       "id": 3,
       "name": "Bear Tracks",
       "location": "Smoky Mountain South",
       "occupancy": 12,
-      "url": "../../assets/images/Cabin2.jpg"
+      "imageUrl": "../../assets/images/Cabin2.jpg"
     }
 ]

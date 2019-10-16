@@ -21,21 +21,25 @@ export class CabinsService {
   // private url = '../../assets/blah/cabins.json';
 
   // Iteration 3: Observable
-  public getCabinsObserver: Observer<any>;
-  public getCabinsChanged$: Observable<any>;
+  // public getCabinsObserver: Observer<any>;
+  // public getCabinsChanged$: Observable<any>;
 
 
   // Iteration 4: Subject
   // private getCabinsSource = new Subject<Cabin[]>();
 
   // Iteration 4: BehaviorSubject
-  // private getCabinsSource = new BehaviorSubject<Cabin[]>([]);
+  private getCabinsSource = new BehaviorSubject<Cabin[]>([]);
 
   // Iteration 4 and 5: make an Observable of the Stream
-  // public getCabinsChanged$ = this.getCabinsSource.asObservable(); // Observable stream
+  public getCabinsChanged$ = this.getCabinsSource.asObservable(); // Observable stream
+
+  behaviorSubject: BehaviorSubject<Cabin[]>;
+  getUsers(): BehaviorSubject<Cabin[]> {
+    return this.behaviorSubject;
+  }
 
   constructor(private httpClient: HttpClient) {
-
     // Iteration 3:
     // Note: below lines are not needed for Subject or BehaviorSubject
     // Note RxJS v6 now requires the pipe() method in order to use the operators like share() or map()
@@ -52,34 +56,34 @@ export class CabinsService {
   // }
 
   // Iteration 2: return the observable directly
-  getCabins(): Observable<Cabin[]> {
-    return this.httpClient.get<Cabin[]>(this.url);
-  }
+  // getCabins(): Observable<Cabin[]> {
+  //   return this.httpClient.get<Cabin[]>(this.url);
+  // }
 
   // Iteration 3 & 4: call next on the observable so anyone subscribing can get the updated data
-  // getCabins() {
-  //   this.httpClient.get<Cabin[]>(this.url)
-  //     .pipe(
-  //       // catchError is part of RxJS; takes the error and returns a new observable throwing an error
-  //       catchError(this.handleError)
-  //     )
-  //     .subscribe(data => {
+  getCabins() {
+    this.httpClient.get<Cabin[]>(this.url)
+      .pipe(
+        // catchError is part of RxJS; takes the error and returns a new observable throwing an error
+        catchError(this.handleError)
+      )
+      .subscribe(data => {
 
-  //       // Iteration 3: Observable
-  //       if (data && this.getCabinsObserver) {
-  //         // additional logic
-  //         this.getCabinsObserver.next(data);
-  //       }
+        // Iteration 3: Observable
+        // if (data && this.getCabinsObserver) {
+        //   // additional logic
+        //   this.getCabinsObserver.next(data);
+        // }
 
-  //       // Iteration 4: Subject and BehaviorSubject
-  //       // if (data && this.getCabinsSource) {
-  //       //   this.getCabinsSource.next(data);
-  //       // }
+        // Iteration 4: Subject and BehaviorSubject
+        if (data && this.getCabinsSource) {
+          this.getCabinsSource.next(data);
+        }
 
-  //     },
-  //       // alternative to handle error via 2nd callback to subscribe()
-  //       error => console.log(error));
-  // }
+      },
+        // alternative to handle error via 2nd callback to subscribe()
+        error => console.log(error));
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
