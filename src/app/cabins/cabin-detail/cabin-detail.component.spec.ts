@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { CabinDetailComponent } from './cabin-detail.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { CabinsService } from './cabins.service';
+import { CabinsService } from '../services/cabins.service';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('CabinDetailComponent', () => {

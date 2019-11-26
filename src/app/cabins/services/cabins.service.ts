@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
-import { Cabin } from './models/cabin';
-import { CABINS } from './models/mock-cabins';
+import { Cabin } from '../models/cabin';
+import { CABINS } from '../models/mock-cabins';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';

@@ -1,0 +1,52 @@
+<div *ngIf="cabin">
+  <div class="card">
+    <div class="card-header">
+      <h2>{{ cabin.name }} Cabin Details</h2>
+    </div>
+    <div class="card-body">
+      <!-- Placeholder; no element is created int he DOM using ng-template-->
+      <ng-template>
+        <span>ID: </span>{{ cabin.id }}
+      </ng-template>
+      <div>
+          <strong>Occupancy:</strong> {{ cabin.occupancy }} <br/>
+          <strong>Location:</strong> {{ cabin.location }} <br/>
+      </div>
+      <div id="cabin_images">
+        <div *ngFor="let image of cabin.images" class="m-4">
+            <img src="{{image.url}}" alt="{{cabin.name}}" style="width:100%;">
+        </div>
+      </div>
+      <button (click)="goBack()">Go Back</button>
+    </div>
+  </div>
+
+  <!-- <form>
+    <fieldset>
+      <legend>
+          <h2>{{cabin.name}} Details</h2>
+      </legend>
+      
+      <div>
+        <span>ID: </span>{{cabin.id}}</div>
+      <div>
+        <p>
+          <label>Name:
+            <input [ngModel]="cabin.name" placeholder="name" name="cabinName" readonly/>
+          </label>
+        </p>
+        <p>
+          <label>Occupancy:
+            <input [ngModel]="cabin.occupancy" placeholder="name" name="cabinOccupancy" readonly/>
+          </label>
+        </p>
+        <p>
+          <label>Location:
+            <input [ngModel]="cabin.location" placeholder="name" name="cabinLocation" readonly/>
+          </label>
+        </p>
+      </div>
+    </fieldset>
+  </form> -->
+  
+</div>

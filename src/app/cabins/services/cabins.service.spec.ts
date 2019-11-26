@@ -1,7 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { CabinsService } from './cabins.service';
-import { Cabin } from './models/cabin';
+import { Cabin } from '../models/cabin';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('CabinsService', () => {
@@ -34,7 +33,7 @@ describe('CabinsService', () => {
   it('should call CabinsService using spyOn and return mock data', () => {
     // Arrange
     const getCabinsMock: Cabin[] = [
-      { id: 123, name: 'Big Bear Cabin', location: 'East Mountain Cabins', occupancy: 8, imageUrl: '' }
+      { id: 123, name: 'Big Bear Cabin', location: 'East Mountain Cabins', occupancy: 8, mainImageUrl: '' }
     ];
     const cabinServiceSpy = spyOn(cabinsService, 'getCabins').and.returnValue(getCabinsMock);
     // Act

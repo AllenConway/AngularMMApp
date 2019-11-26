@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CabinsComponent } from './cabins.component';
-import { CabinDetailComponent } from './cabin-detail.component';
+import { CabinDetailComponent } from './cabin-detail/cabin-detail.component';
+import { CabinListComponent } from './cabin-list/cabin-list.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CabinsComponent
+    component: CabinListComponent
   },
   {
     path: 'detail/:id',

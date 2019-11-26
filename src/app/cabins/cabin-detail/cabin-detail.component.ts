@@ -1,9 +1,9 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Location } from '@angular/common';
-import { Cabin } from './models/cabin';
+import { Cabin } from '../models/cabin';
 // import { CABINS } from './mock-cabins';
-import { CabinsService } from './cabins.service';
+import { CabinsService } from '../services/cabins.service';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 

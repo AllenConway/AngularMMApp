@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Cabin } from './models/cabin';
-import { CABINS } from './models/mock-cabins';
-import { CabinsService } from './cabins.service';
+import { Cabin } from '../models/cabin';
+import { CABINS } from '../models/mock-cabins';
+import { CabinsService } from '../services/cabins.service';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';

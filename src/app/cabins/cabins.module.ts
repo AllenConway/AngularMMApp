@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { CabinListComponent } from './cabin-list.component';
-import { CabinsComponent } from './cabins.component';
-import { CabinDetailComponent } from './cabin-detail.component';
+import { CabinListComponent } from './cabin-list/cabin-list.component';
+import { CabinDetailComponent } from './cabin-detail/cabin-detail.component';
 import { CabinsRoutingModule } from './cabins-routing.module';
 import { CabinsService } from './';
 
@@ -19,7 +18,6 @@ import { CabinsService } from './';
   declarations: [
     CabinDetailComponent,
     CabinListComponent,
-    CabinsComponent
   ],
   providers: [
     CabinsService
