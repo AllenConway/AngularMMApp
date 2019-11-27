@@ -5,28 +5,25 @@
     </h1>
   </div>
   <nav>
-    <button class="btn btn-primary" [routerLink]=" ['/dashboard'] ">Dashboard</button>
-    <button class="btn btn-secondary" [routerLink]=" ['/cabins'] ">Cabins</button>
-    <button mat-raised-button [matMenuTriggerFor]="adminMenu">Admin</button>
-    <mat-menu #adminMenu="matMenu">
-      <button mat-menu-item [routerLink]=" ['/admin-cabin'] ">Cabins</button>
-    </mat-menu>
-    <!-- <ul>
-    <li><a href="" [routerLink]="['/dashboard']">Dashboard</a></li>
-    <li><a href="" [routerLink]="['/cabins']">Cabins</a></li>
-  </ul> -->
+    <div class="nav-buttons">
+        <button mat-raised-button color="primary" [routerLink]="['/dashboard']">Dashboard</button>    
+        <button mat-raised-button [routerLink]="['/cabins']">Cabins</button>    
+        <button mat-raised-button [matMenuTriggerFor]="adminMenu">Admin</button>
+        <mat-menu #adminMenu="matMenu">
+          <button mat-menu-item [routerLink]="['/admin-cabin']">Cabins</button>
+        </mat-menu>
+    </div>
+
   </nav>
 </header>
 <main>
-<!--Note the difference between 'container' and 'container-fluid' in Bootstrap is that
-container will use a fixed width based on the screen for sizing the div; container-fluid uses changes it's size dynamically using all avaliable space.
-Both are responsive, it's just fixed width or not for the container-->
-<div class="container">
+  <!--Note the difference between 'container' and 'container-fluid' in Bootstrap is that
+  container will use a fixed width based on the screen for sizing the div; container-fluid uses changes it's size dynamically using all avaliable space.
+  Both are responsive, it's just fixed width or not for the container-->
+  <div class="container">
     <router-outlet></router-outlet>
   </div>
 </main>
 <footer>
-  <div class="main-footer">
-    {{today | date:'yyyy'}} {{className}}
-  </div>
+  <div class="main-footer">{{ today | date: "yyyy" }} {{ className }}</div>
 </footer>

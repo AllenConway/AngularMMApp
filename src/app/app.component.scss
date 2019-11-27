@@ -16,8 +16,17 @@
     color: #fff;
 }
 
-.mat-button, .mat-raised-button{
-    background-color:#6c757d;
-    //background-color: #555C62;
-    color: #fff;
-} 
+nav {    
+    margin-bottom: 20px;
+}
+
+// Specificity states any 'button' within something inside the '.nav-buttons' class
+.nav-buttons button {
+    margin-right: 8px;
+}
+
+// .mat-button, .mat-raised-button{
+//     background-color:#6c757d;
+//     //background-color: #555C62;
+//     color: #fff;
+// } 

@@ -1,5 +1,12 @@
-#cabin_images {
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);  //1fr = 1 flexible/fractional unit
-    // grid-template-rows: repeat(4, 1fr);
+}
+
+.grid-container--fit {
+    // This is saying, give me a row thats a minimum of 300px or 1 fraction unit whichever is in bounds.
+    // Since the content filling this grid (images) also has margins that's taken into account for calculating widths
+    // At the smallest screen, it's less than 300px and each image needs the 300px plus margins. Therefore 2 images
+    // will not appear until the parent is roughly 670px or greater when there is enough room for image 1 (300px) + image 2 (300px) + margins and padding (70px)
+    // 1fr = 1 flexible/fractional unit
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }

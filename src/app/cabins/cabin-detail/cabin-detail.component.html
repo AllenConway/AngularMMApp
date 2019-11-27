@@ -12,8 +12,8 @@
           <strong>Occupancy:</strong> {{ cabin.occupancy }} <br/>
           <strong>Location:</strong> {{ cabin.location }} <br/>
       </div>
-      <div id="cabin_images">
-        <div *ngFor="let image of cabin.images" class="m-4">
+      <div class="grid-container grid-container--fit">
+        <div *ngFor="let image of cabin.images" class="m-3">
             <img src="{{image.url}}" alt="{{cabin.name}}" style="width:100%;">
         </div>
       </div>

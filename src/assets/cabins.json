@@ -7,6 +7,9 @@
       "images": [
         {"url": "../../assets/images/Cabin1.jpg"},
         {"url": "../../assets/images/Cabin2.jpg"},
+        {"url": "../../assets/images/Cabin3.jpg"},
+        {"url": "../../assets/images/Cabin1.jpg"},
+        {"url": "../../assets/images/Cabin2.jpg"},
         {"url": "../../assets/images/Cabin3.jpg"}
       ],
       "mainImageUrl": "../../assets/images/Cabin1.jpg"
