@@ -13,7 +13,6 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AdminCabinComponent, AdminCabinDetailComponent],
-  exports: [AdminCabinComponent, AdminCabinDetailComponent],
   imports: [
     CommonModule,
     FormsModule,
