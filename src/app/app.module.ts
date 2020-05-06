@@ -10,7 +10,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { ReservationsModule } from './reservations/reservations.module';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import { ReservationsModule } from './reservations/reservations.module';
     MatButtonModule,
     MatMenuModule,
     NgbModule,
-    DashboardModule,
-    ReservationsModule
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
