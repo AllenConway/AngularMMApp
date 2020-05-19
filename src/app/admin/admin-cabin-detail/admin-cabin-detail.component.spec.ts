@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminCabinDetailComponent } from './admin-cabin-detail.component';
-import { MatFormFieldModule, MatDialogModule, MatTableModule, MatDialogRef, MAT_DIALOG_DATA, MatInputModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
