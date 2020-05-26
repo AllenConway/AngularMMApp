@@ -9,7 +9,6 @@ import { CabinsModule } from '../cabins/cabins.module';
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
-    CabinsModule,
     CommonModule,
     MatButtonModule,
     MatMenuModule,

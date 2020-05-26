@@ -5,14 +5,14 @@ import { CABINS } from '../models/mock-cabins';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-import { share, catchError } from 'rxjs/operators';
+import { share, catchError, map } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { throwError } from 'rxjs';
+import { throwError, of } from 'rxjs';
 
 // marks a class as available to Injector for creation
 @Injectable(
-  // {providedIn: 'root',}  //A6: 'providedIn' property. Allows service to dicatate it's module; Tree Shaking Providers (TSP)
+  {providedIn: 'root'}  // A6: 'providedIn' property. Allows service to dicatate it's module; Tree Shaking Providers (TSP)
 )
 export class CabinsService {
 
@@ -56,34 +56,41 @@ export class CabinsService {
   // }
 
   // Iteration 2: return the observable directly
-  // getCabins(): Observable<Cabin[]> {
-  //   return this.httpClient.get<Cabin[]>(this.url);
-  // }
+  getCabins(): Observable<Cabin[]> {
+    return this.httpClient.get<Cabin[]>(this.url).pipe(
+      map((data: Cabin[]) => {
+        console.log(data[0].name);
+        return data;
+      }),
+      // catchError is part of RxJS; takes the error and returns a new observable throwing an error
+      catchError(this.handleError)
+    );
+  }
 
   // Iteration 3 & 4: call next on the observable so anyone subscribing can get the updated data
-  getCabins() {
-    this.httpClient.get<Cabin[]>(this.url)
-      .pipe(
-        // catchError is part of RxJS; takes the error and returns a new observable throwing an error
-        catchError(this.handleError)
-      )
-      .subscribe(data => {
+  // getCabins() {
+  //   this.httpClient.get<Cabin[]>(this.url)
+  //     .pipe(
+  //       // catchError is part of RxJS; takes the error and returns a new observable throwing an error
+  //       catchError(this.handleError)
+  //     )
+  //     .subscribe(data => {
 
-        // Iteration 3: Observable
-        // if (data && this.getCabinsObserver) {
-        //   // additional logic
-        //   this.getCabinsObserver.next(data);
-        // }
+  //       // Iteration 3: Observable
+  //       // if (data && this.getCabinsObserver) {
+  //       //   // additional logic
+  //       //   this.getCabinsObserver.next(data);
+  //       // }
 
-        // Iteration 4: Subject and BehaviorSubject
-        if (data && this.getCabinsSource) {
-          this.getCabinsSource.next(data);
-        }
+  //       // Iteration 4: Subject and BehaviorSubject
+  //       if (data && this.getCabinsSource) {
+  //         this.getCabinsSource.next(data);
+  //       }
 
-      },
-        // alternative to handle error via 2nd callback to subscribe()
-        error => console.log(error));
-  }
+  //     },
+  //       // alternative to handle error via 2nd callback to subscribe()
+  //       error => console.log(error));
+  // }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

@@ -20,7 +20,7 @@ import { CabinsService } from './';
     CabinListComponent,
   ],
   providers: [
-    CabinsService
+    // CabinsService
   ]
 })
 export class CabinsModule { }
