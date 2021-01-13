@@ -44,7 +44,7 @@ export class CabinsService {
     // Note: below lines are not needed for Subject or BehaviorSubject
     // Note RxJS v6 now requires the pipe() method in order to use the operators like share() or map()
     // share() operator Returns an observable sequence that shares
-    // a single subscription to the underlying sequence.
+    // a single subscription to the underlying sequence. (share is a cheap way to get a hot observable)
     // Also makes the observable 'Hot' until there are no more subscriptions. Then it becomes 'Cold' and a new 'Subject' is created
     // this.getCabinsChanged$ = new Observable((observer: any) => this.getCabinsObserver = observer).pipe(share());
 
