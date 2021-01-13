@@ -7,8 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { share, catchError, map } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { throwError, of } from 'rxjs';
+import { BehaviorSubject, throwError, of } from 'rxjs';
 
 // marks a class as available to Injector for creation
 @Injectable(

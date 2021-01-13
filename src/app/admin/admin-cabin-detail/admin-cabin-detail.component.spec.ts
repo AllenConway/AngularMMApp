@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AdminCabinDetailComponent } from './admin-cabin-detail.component';
 import { MatInputModule } from '@angular/material/input';
@@ -15,7 +15,7 @@ describe('AdminCabinDetailComponent', () => {
     close: jasmine.createSpy('close')
   };
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,

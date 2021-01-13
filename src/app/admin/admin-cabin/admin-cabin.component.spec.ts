@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AdminCabinComponent } from './admin-cabin.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -10,7 +10,7 @@ describe('AdminCabinComponent', () => {
   let component: AdminCabinComponent;
   let fixture: ComponentFixture<AdminCabinComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         MatCheckboxModule,
