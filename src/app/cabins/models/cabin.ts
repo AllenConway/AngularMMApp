@@ -3,6 +3,6 @@ export interface Cabin {
     name: string;
     location: string;
     occupancy: number;
-    mainImageUrl: string;
+    mainImageUrl?: string;
     images?: string[];
   }

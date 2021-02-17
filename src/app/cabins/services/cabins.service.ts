@@ -50,21 +50,21 @@ export class CabinsService {
   }
 
   // Iteration 1: raw data return without observables
-  // getCabins(): Cabin[] {
-  //   return CABINS;
-  // }
+  getCabins(): Cabin[] {
+    return CABINS;
+  }
 
   // Iteration 2: return the observable directly
-  getCabins(): Observable<Cabin[]> {
-    return this.httpClient.get<Cabin[]>(this.url).pipe(
-      map((data: Cabin[]) => {
-        console.log(data[0].name);
-        return data;
-      }),
-      // catchError is part of RxJS; takes the error and returns a new observable throwing an error
-      catchError(this.handleError)
-    );
-  }
+  // getCabins(): Observable<Cabin[]> {
+  //   return this.httpClient.get<Cabin[]>(this.url).pipe(
+  //     map((data: Cabin[]) => {
+  //       console.log(data[0].name);
+  //       return data;
+  //     }),
+  //     // catchError is part of RxJS; takes the error and returns a new observable throwing an error
+  //     catchError(this.handleError)
+  //   );
+  // }
 
   // Iteration 3 & 4: call next on the observable so anyone subscribing can get the updated data
   // getCabins() {

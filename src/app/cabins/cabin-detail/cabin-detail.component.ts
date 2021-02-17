@@ -35,13 +35,13 @@ export class CabinDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     // Iteration 1: raw data being returned
-    // this.cabins = this.cabinsService.getCabins();
-    // this.getCabin();
+    this.cabins = this.cabinsService.getCabins();
+    this.getCabin();
 
     // Iteration 2: subscribe to the observable that is directly returned
     // getCabins returns an Observable, so subscribe to the async data,
     // and use fat arrow syntax to assign data to our class property via function
-    this.cabinsService.getCabins().subscribe(data => this.onCabinsLoaded(data));
+    // this.cabinsService.getCabins().subscribe(data => this.onCabinsLoaded(data));
 
     // Iteration 4: If the timeout is added, and line 31 is uncommented, it shows an observable that has already broadcast its information
     // and we don't get previously streamed value. We must call getCabins again to make observable broadcast data
@@ -72,7 +72,7 @@ export class CabinDetailComponent implements OnInit, OnDestroy {
 
   getCabin(): void {
     const id = +this.route.snapshot.paramMap.get('id');  // unary "+" operator which yields a numeric expression
-    this.cabin = this.cabins.find(c => c.id === id);
+    this.cabin = this.cabins?.find(c => c.id === id);
   }
 
   goBack(): void {
