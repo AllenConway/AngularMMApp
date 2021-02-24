@@ -20,7 +20,7 @@ export class CabinsService {
   // private url = '../../assets/blah/cabins.json';
 
   // Iteration 3: Observable
-  // public getCabinsObserver: Observer<any>;
+  // private getCabinsObserver: Observer<any>;
   // public getCabinsChanged$: Observable<any>;
 
 
@@ -47,12 +47,13 @@ export class CabinsService {
     // Also makes the observable 'Hot' until there are no more subscriptions. Then it becomes 'Cold' and a new 'Subject' is created
     // this.getCabinsChanged$ = new Observable((observer: any) => this.getCabinsObserver = observer).pipe(share());
 
+
   }
 
   // Iteration 1: raw data return without observables
-  getCabins(): Cabin[] {
-    return CABINS;
-  }
+  // getCabins(): Cabin[] {
+  //   return CABINS;
+  // }
 
   // Iteration 2: return the observable directly
   // getCabins(): Observable<Cabin[]> {
@@ -67,29 +68,29 @@ export class CabinsService {
   // }
 
   // Iteration 3 & 4: call next on the observable so anyone subscribing can get the updated data
-  // getCabins() {
-  //   this.httpClient.get<Cabin[]>(this.url)
-  //     .pipe(
-  //       // catchError is part of RxJS; takes the error and returns a new observable throwing an error
-  //       catchError(this.handleError)
-  //     )
-  //     .subscribe(data => {
+  getCabins() {
+    this.httpClient.get<Cabin[]>(this.url)
+      .pipe(
+        // catchError is part of RxJS; takes the error and returns a new observable throwing an error
+        catchError(this.handleError)
+      )
+      .subscribe(data => {
 
-  //       // Iteration 3: Observable
-  //       // if (data && this.getCabinsObserver) {
-  //       //   // additional logic
-  //       //   this.getCabinsObserver.next(data);
-  //       // }
+        // Iteration 3: Observable
+        // if (data && this.getCabinsObserver) {
+        //   // additional logic
+        //   this.getCabinsObserver.next(data);
+        // }
 
-  //       // Iteration 4: Subject and BehaviorSubject
-  //       if (data && this.getCabinsSource) {
-  //         this.getCabinsSource.next(data);
-  //       }
+        // Iteration 4: Subject and BehaviorSubject
+        if (data && this.getCabinsSource) {
+          this.getCabinsSource.next(data);
+        }
 
-  //     },
-  //       // alternative to handle error via 2nd callback to subscribe()
-  //       error => console.log(error));
-  // }
+      },
+        // alternative to handle error via 2nd callback to subscribe()
+        error => console.log(error));
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

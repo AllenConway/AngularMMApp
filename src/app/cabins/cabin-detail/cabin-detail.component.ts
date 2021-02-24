@@ -35,8 +35,8 @@ export class CabinDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     // Iteration 1: raw data being returned
-    this.cabins = this.cabinsService.getCabins();
-    this.getCabin();
+    // this.cabins = this.cabinsService.getCabins();
+    // this.getCabin();
 
     // Iteration 2: subscribe to the observable that is directly returned
     // getCabins returns an Observable, so subscribe to the async data,
@@ -47,13 +47,13 @@ export class CabinDetailComponent implements OnInit, OnDestroy {
     // and we don't get previously streamed value. We must call getCabins again to make observable broadcast data
     //  window.setTimeout(() => {
     //     // Iteration 3/4/5: subscribe to exposed observable on the service
-        //  this.cabinsSubscription = this.cabinsService.getCabinsChanged$.subscribe(data => this.onCabinsLoaded(data));
+         this.cabinsSubscription = this.cabinsService.getCabinsChanged$.subscribe(data => this.onCabinsLoaded(data));
     // //     // If this line below is removed and timeouts are added, we will not have data from simply subscribing to the observable above
           // this.cabinsService.getCabins();
-    //     window.setTimeout(() => {
+        window.setTimeout(() => {
     // //          // next() isn't called until this line is hit and then we'll get our data
-    //       this.cabinsService.getCabins();
-    //     }, 5000);
+          this.cabinsService.getCabins();
+        }, 2500);
     //  }, 2500);
 
   }
