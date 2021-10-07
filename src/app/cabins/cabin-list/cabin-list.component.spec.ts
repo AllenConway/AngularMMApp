@@ -13,7 +13,7 @@ describe('CabinListComponent', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, RouterTestingModule],
       declarations: [ CabinListComponent ],
-      providers: [CabinsService]
+      providers: [{provide: CabinsService, useClass: MockCabinsService}]
     })
     .compileComponents();
   }));
@@ -24,7 +24,20 @@ describe('CabinListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('Initialization', () => {
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+
+
+
   });
+
+
 });
+
+class MockCabinsService {
+
+  
+
+}

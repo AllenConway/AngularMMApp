@@ -30,17 +30,17 @@ describe('CabinsService', () => {
 
   });
 
-  it('should call CabinsService using spyOn and return mock data', () => {
-    // Arrange
-    const getCabinsMock: Cabin[] = [
-      { id: 123, name: 'Big Bear Cabin', location: 'East Mountain Cabins', occupancy: 8, mainImageUrl: '' }
-    ];
-    const cabinServiceSpy = spyOn(cabinsService, 'getCabins').and.returnValue(getCabinsMock);
-    // Act
-    const result = cabinsService.getCabins();
-    // Assert
-    expect(result[0].id).toEqual(123);
-  });
+  // xit('should call CabinsService using spyOn and return mock data', () => {
+  //   // Arrange
+  //   const getCabinsMock: Cabin[] = [
+  //     { id: 123, name: 'Big Bear Cabin', location: 'East Mountain Cabins', occupancy: 8, mainImageUrl: '' }
+  //   ];
+  //   const cabinServiceSpy = spyOn(cabinsService, 'getCabins').and.returnValue(getCabinsMock);
+  //   // Act
+  //   const result = cabinsService.getCabins();
+  //   // Assert
+  //   expect(result[0].id).toEqual(123);
+  // });
 
   it('should call CabinsService using spyOn with a fake implementation', () => {
     // Arrange
