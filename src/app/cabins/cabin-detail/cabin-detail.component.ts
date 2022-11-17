@@ -4,8 +4,7 @@ import { Location } from '@angular/common';
 import { Cabin } from '../models/cabin';
 // import { CABINS } from './mock-cabins';
 import { CabinsService } from '../services/cabins.service';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 
 @Component({

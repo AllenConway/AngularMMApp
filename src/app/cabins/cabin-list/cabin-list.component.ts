@@ -1,10 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, of, Subscription } from 'rxjs';
 import { Cabin } from '../models/cabin';
 import { CABINS } from '../models/mock-cabins';
 import { CabinsService } from '../services/cabins.service';
-import { Subscription } from 'rxjs/Subscription';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs';
+
 
 @Component({
   selector: 'app-cabin-list',
