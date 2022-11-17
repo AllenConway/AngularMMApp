@@ -12,18 +12,17 @@ import { AdminCabinDetailComponent } from './admin-cabin-detail/admin-cabin-deta
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AdminCabinComponent, AdminCabinDetailComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTableModule
-  ],
-  entryComponents: [AdminCabinDetailComponent] // Since this component is created dynamically as a dialog, add as an entryComponent
+    declarations: [AdminCabinComponent, AdminCabinDetailComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        MatCheckboxModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatTableModule
+    ]
 })
 export class AdminModule { }
