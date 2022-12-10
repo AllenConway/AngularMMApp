@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Mountain Cabin Vacations';
-  className = 'Magenic Masters LIVE! class';
+  className = 'Visual Studio LIVE! Las Vegas';
   today: number = Date.now();
 }

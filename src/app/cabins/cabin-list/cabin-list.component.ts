@@ -8,7 +8,7 @@ import { CabinsService } from '../services/cabins.service';
 @Component({
   selector: 'app-cabin-list',
   templateUrl: './cabin-list.component.html',
-  styleUrls: ['./cabin-list.component.less']
+  styleUrls: ['./cabin-list.component.scss']
 })
 export class CabinListComponent implements OnInit, OnDestroy {
 

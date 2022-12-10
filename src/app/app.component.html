@@ -4,27 +4,61 @@
       {{ title }}
     </h1>
   </div>
-  <nav>
-    <div class="nav-buttons">
-        <button mat-raised-button color="primary" [routerLink]="['/dashboard']">Dashboard</button>    
-        <button mat-raised-button [routerLink]="['/cabins']">Cabins</button>    
-        <button mat-raised-button [matMenuTriggerFor]="adminMenu">Admin</button>
-        <mat-menu #adminMenu="matMenu">
-          <button mat-menu-item [routerLink]="['/admin-cabin']">Cabins</button>
-        </mat-menu>
-    </div>
 
-  </nav>
 </header>
-<main>
-  <!--Note the difference between 'container' and 'container-fluid' in Bootstrap is that
-  container will use a fixed width based on the screen for sizing the div; container-fluid uses changes it's size dynamically using all avaliable space.
-  Both are responsive, it's just fixed width or not for the container-->
-  <div class="container">
-    <!-- router-outlet informs Angular to update the application view with the component for the selected route -->
-    <router-outlet></router-outlet>
-  </div>
-</main>
+<section>
+  <nav>
+    <ul>
+      <li>
+        <a [routerLink]="['/dashboard']">
+          <i class="material-icons">home</i>
+          <span>HOME</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/cabins']">
+          <i class="material-icons">cabin</i>
+          <span>CABINS</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/cabins']">
+          <i class="material-icons">hotel</i>
+          <span>RESERVATIONS</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/cabins']">
+          <i class="material-icons">attach_money</i>
+          <span>SPECIALS</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/cabins']">
+          <i class="material-icons">forest</i>
+          <span>ACTIVITES</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/admin-cabin']">
+          <i class="material-icons">settings</i>
+          <span>ADMIN</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <!--Note the difference between 'container' and 'container-fluid' in Bootstrap is that
+    container will use a fixed width based on the screen for sizing the div; container-fluid uses changes it's size dynamically using all avaliable space.
+    Both are responsive, it's just fixed width or not for the container-->
+    <div class="container">
+      <!-- router-outlet informs Angular to update the application view with the component for the selected route -->
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+</section>
+
 <footer>
   <div class="main-footer">{{ today | date: "yyyy" }} {{ className }}</div>
 </footer>

@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-cabin-detail',
   templateUrl: './cabin-detail.component.html',
-  styleUrls: ['./cabin-detail.component.less']
+  styleUrls: ['./cabin-detail.component.scss']
 })
 export class CabinDetailComponent implements OnInit, OnDestroy {
   @Input() cabin: Cabin;

@@ -1,25 +1,105 @@
 /* You can add global styles to this file, and also import other style files */
 // @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import './styles.variables.scss';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-html {
-  position: relative;
-  min-height: 100%;
+* {
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0 0 10px;
-  padding: 25px;
+  font-family: $ff-base;
 }
 
-footer {
-  background-color: lightgrey;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 25px;
-  width: 100%;
-  overflow: hidden;
+/* Style the header */
+header {
+  background-color: #665;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  height: $header-height;
 }
+
+/* Container for flexboxes */
+section {
+  display: flex;
+  flex-wrap: wrap;
+  /* Calculate the height of your footer element dynamically to adjust the height */
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
+}
+
+/* Style the footer */
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: $footer-height;
+  background-color: lightgrey;
+  color: #4A387D;
+  align-items: center;
+  border-top: 1px solid $mountain-green;
+}
+
+/* Style the navigation menu */
+nav {
+  flex: 15%;
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style the content */
+main {
+  flex: 85%;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    flex-direction: column;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 8px 0;
+  padding: 0;
+
+  li a {
+      display: flex;
+      align-items: center;
+      height: 56px;
+      padding: 0 20px;
+      text-decoration: none;
+      color: black;
+
+      span {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+      }
+
+      &:hover {
+          background: rgba(0,0,0,0.08);
+          cursor: pointer;
+      }
+
+      i {
+          margin-right: 20px;
+          opacity: 0.5;
+      }
+  }
+}
+
+// end newly applied styles
 
 .admin-grid-component-container {
 
