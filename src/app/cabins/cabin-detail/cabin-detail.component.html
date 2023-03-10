@@ -14,7 +14,7 @@
       </div>
       <div class="grid-container grid-container--fit">
         <div *ngFor="let image of cabin.images" class="m-3">
-            <img src="{{image.url}}" alt="{{cabin.name}}" style="width:100%;">
+            <img src="{{image.url}}" alt="{{cabin.name}}" class="cabin-image">
         </div>
       </div>
       <button (click)="goBack()">Go Back</button>

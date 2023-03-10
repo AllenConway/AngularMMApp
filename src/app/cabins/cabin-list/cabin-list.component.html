@@ -6,7 +6,7 @@
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let cabin of cabins" (click)="selectCabin(cabin)">
       <a routerLink="/cabins/detail/{{cabin.id}}">
-        <span>{{cabin.id}}</span> {{cabin.name}}
+        <span><i class="material-icons">cabin</i></span> {{cabin.name}}
       </a>
     </li>
   </ul>

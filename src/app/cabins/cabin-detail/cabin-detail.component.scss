@@ -10,3 +10,7 @@
     // 1fr = 1 flexible/fractional unit
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
+.cabin-image {
+    width: 100% !important;
+}

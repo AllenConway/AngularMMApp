@@ -6,7 +6,7 @@
     <ng-container *ngIf="(cabins$ | async) as cabins; else loading">
       <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true">
         <ng-template ngbSlide *ngFor="let cabin of cabins">
-          <img src="{{cabin.mainImageUrl}}" alt="{{cabin.name}}" style="width:100%;">
+          <img src="{{cabin.mainImageUrl}}" alt="{{cabin.name}}" class="cabin-image">
           <div class="carousel-caption">
             <h3>{{cabin.name}}</h3>
             <p>{{cabin.location}}</p>
