@@ -1,0 +1,58 @@
+<h3>Please enter cabin reservation details below</h3>
+<div class="input-form">
+    <form (ngSubmit)="onSubmit()" #reservationForm="ngForm">
+
+        <div class="form-group">
+                <mat-form-field appearance="outline" class="mat-form-field-100">
+                    <mat-label>Enter your first name</mat-label>
+                    <input matInput [(ngModel)]="reservationDetails.firstName" name="firstName" class="input-name" required>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field appearance="outline" class="mat-form-field-100">
+                    <mat-label>Enter your last name</mat-label>
+                    <input matInput [(ngModel)]="reservationDetails.lastName" name="lastName" class="input-name" required>
+                </mat-form-field>
+            </div>
+
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>Choose a check in date</mat-label>
+                <input matInput [matDatepicker]="checkinPicker" [(ngModel)]="reservationDetails.checkinDate" name="checkinDate" required>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="checkinPicker"></mat-datepicker-toggle>
+                <mat-datepicker #checkinPicker></mat-datepicker>
+              </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>Choose a check out date</mat-label>
+                <input matInput [matDatepicker]="checkoutPicker" [(ngModel)]="reservationDetails.checkoutDate" name="checkoutDate" required>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="checkoutPicker"></mat-datepicker-toggle>
+                <mat-datepicker #checkoutPicker></mat-datepicker>
+              </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>Select a Cabin</mat-label>
+                <mat-select [(ngModel)]="reservationDetails.cabinName" name="cabinName" required>
+                  <mat-option *ngFor="let cabin of cabins" [value]="cabin.id">
+                    {{cabin.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>Number of Occupants</mat-label>
+                <mat-select [(ngModel)]="reservationDetails.occupancy" name="occupancy" required>
+                  <mat-option *ngFor="let occ of occupancy" [value]="occ">
+                    {{occ}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!reservationForm.form.valid">Submit</button>
+    </form>
+</div>

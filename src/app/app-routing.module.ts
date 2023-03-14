@@ -11,7 +11,10 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'cabins', loadChildren: () => import('./cabins/cabins.module').then(m => m.CabinsModule), canLoad: [AuthGuard]},
-  {path: 'admin-cabin', component: AdminCabinComponent, canActivate: [AuthGuard]}
+  {path: 'admin-cabin', component: AdminCabinComponent, canActivate: [AuthGuard]},
+  {path: 'activites', loadComponent: () => import('./activites/activites.component').then(m => m.ActivitesComponent)},
+  {path: 'reservations', loadComponent: () => import('./reservations/reservation.component').then(m => m.ReservationComponent)},
+  {path: 'specials', loadComponent: () => import('./specials/specials.component').then(m => m.SpecialsComponent)}
 ];
 
 @NgModule({

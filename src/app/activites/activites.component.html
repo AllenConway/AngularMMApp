@@ -1,0 +1,11 @@
+<h3>Activites and Amenities</h3>
+<p>Please select an activity below for its details</p>
+<div *ngIf="activites">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let activity of activites" (click)="selectActivity(activity)">
+            <a routerLink="['/activites/detail', activty.id]">
+                <span><i class="material-icons">{{activity.icon}}</i></span> {{activity.name}}
+            </a>
+        </li>
+    </ul>
+</div>
