@@ -11,7 +11,7 @@ import { Activity } from './models/activity';
 })
 export class ActivitesComponent {
 
-  private activites: Activity[] = [];
+  public activites: Activity[] = [];
 
   ngOnInit() { 
     this.activites = [

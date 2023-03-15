@@ -4,7 +4,7 @@ import { Cabin } from '../models/cabin';
 import { CABINS } from '../models/mock-cabins';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { share, catchError, map } from 'rxjs/operators';
-import { BehaviorSubject, throwError, of } from 'rxjs';
+import { BehaviorSubject, throwError, of, Observable } from 'rxjs';
 
 // marks a class as available to Injector for creation
 @Injectable(
@@ -43,8 +43,6 @@ export class CabinsService {
     // a single subscription to the underlying sequence. (share is a cheap way to get a hot observable)
     // Also makes the observable 'Hot' until there are no more subscriptions. Then it becomes 'Cold' and a new 'Subject' is created
     // this.getCabinsChanged$ = new Observable((observer: any) => this.getCabinsObserver = observer).pipe(share());
-
-
   }
 
   // Iteration 1: raw data return without observables
@@ -84,12 +82,12 @@ export class CabinsService {
           this.getCabinsSource.next(data);
         }
 
-      },
-        // alternative to handle error via 2nd callback to subscribe()
-        error => console.log(error));
+      });
   }
 
-  private handleError(error: HttpErrorResponse) {
+  // Observable<never> protects integrity of original observable (i.e. getCabinsChanged$) 
+  // to not mutate it as it omits nothing and never completes
+  private handleError(error: HttpErrorResponse): Observable<never> {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);
@@ -101,8 +99,7 @@ export class CabinsService {
         `body was: ${error.error}`);
     }
     // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
+    return throwError(() => {return 'Something bad happened; please try again later.'});
   }
 
 }

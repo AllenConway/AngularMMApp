@@ -26,9 +26,9 @@ import { CABINS } from '../cabins/models/mock-cabins';
   styleUrls: ['./reservation.component.scss']
 })
 export class ReservationComponent {
-  private reservationDetails: Reservation;
-  private cabins: Cabin[];
-  private occupancy =  Array.from(Array(12).keys(), item => item + 1);
+  public reservationDetails: Reservation;
+  public cabins: Cabin[];
+  public occupancy =  Array.from(Array(12).keys(), item => item + 1);
 
   ngOnInit() { 
     this.reservationDetails = { id: 0, lastName: '', firstName: '', checkinDate: null, checkoutDate: null, cabinId: 0, occupancy: 0 }

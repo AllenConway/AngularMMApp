@@ -36,7 +36,7 @@
         <div class="form-group">
             <mat-form-field appearance="outline">
                 <mat-label>Select a Cabin</mat-label>
-                <mat-select [(ngModel)]="reservationDetails.cabinName" name="cabinName" required>
+                <mat-select [(ngModel)]="reservationDetails.cabinId" name="cabinId" required>
                   <mat-option *ngFor="let cabin of cabins" [value]="cabin.id">
                     {{cabin.name}}
                   </mat-option>
