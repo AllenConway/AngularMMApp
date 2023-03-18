@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CabinListComponent } from './cabin-list/cabin-list.component';
@@ -13,7 +13,8 @@ import { CabinsService } from './';
     CommonModule,
     FormsModule,
     RouterModule,
-    CabinsRoutingModule
+    CabinsRoutingModule,
+    NgOptimizedImage
   ],
   declarations: [
     CabinDetailComponent,

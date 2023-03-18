@@ -6,13 +6,11 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
   [
-    BrowserDynamicTestingModule,
-    NoopAnimationsModule
+    BrowserDynamicTestingModule
   ],
   platformBrowserDynamicTesting(), {
   teardown: { destroyAfterEach: false }

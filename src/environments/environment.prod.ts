@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://mountain-cabins.com/api/',
+  name: 'production'
 };

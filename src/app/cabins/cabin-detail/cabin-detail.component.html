@@ -15,6 +15,7 @@
       <div class="grid-container grid-container--fit">
         <div *ngFor="let image of cabin.images" class="m-3">
             <img src="{{image.url}}" alt="{{cabin.name}}" class="cabin-image">
+            <!-- <img ngSrc="{{image.url}}" alt="{{cabin.name}}" class="cabin-image" width="600" height="400" priority> -->
         </div>
       </div>
       <button (click)="goBack()">Go Back</button>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Mountain Cabin Vacations';
-  className = 'Visual Studio LIVE! Las Vegas';
-  today: number = Date.now();
+  
+  public title: string = 'Mountain Cabin Vacations';
+  public className: string = 'Visual Studio LIVE! Las Vegas';
+  public today: number = Date.now();
+
+  ngOnInit() { 
+    this.className = `Visual Studio LIVE! Las Vegas | Environment: ${environment.name}`
+  }
+
 }
