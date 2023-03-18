@@ -49,10 +49,10 @@ export class CabinDetailComponent implements OnInit, OnDestroy {
          this.cabinsSubscription = this.cabinsService.getCabinsChanged$.subscribe(data => this.onCabinsLoaded(data));
     // //     // If this line below is removed and timeouts are added, we will not have data from simply subscribing to the observable above
           // this.cabinsService.getCabins();
-        window.setTimeout(() => {
+        //window.setTimeout(() => {
     // //          // next() isn't called until this line is hit and then we'll get our data
           this.cabinsService.getCabins();
-        }, 2500);
+        //}, 2500);
     //  }, 2500);
 
   }

@@ -1,14 +1,13 @@
 
 import { Injectable } from '@angular/core';
 import { Cabin } from '../models/cabin';
-import { CABINS } from '../models/mock-cabins';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { share, catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { BehaviorSubject, throwError, of, Observable } from 'rxjs';
 
 // marks a class as available to Injector for creation
 @Injectable(
-  {providedIn: 'root'}  // A6: 'providedIn' property. Allows service to dicatate it's module; Tree Shaking Providers (TSP)
+  { providedIn: 'root' }  // A6: 'providedIn' property. Allows service to dicatate it's module; Tree Shaking Providers (TSP)
 )
 export class CabinsService {
 
@@ -16,19 +15,11 @@ export class CabinsService {
   // Use the following line to force an error and generate a 404
   // private url = '../../assets/blah/cabins.json';
 
-  // Iteration 3: Observable
-  // private getCabinsObserver: Observer<any>;
-  // public getCabinsChanged$: Observable<any>;
-
-
-  // Iteration 4: Subject
-  // private getCabinsSource = new Subject<Cabin[]>();
-
-  // Iteration 4: BehaviorSubject
+  // BehaviorSubject usage for state
   private getCabinsSource = new BehaviorSubject<Cabin[]>([]);
 
-  // Iteration 4 and 5: make an Observable of the Stream
-  public getCabinsChanged$ = this.getCabinsSource.asObservable(); // Observable stream
+  // Make an Observable of the Stream
+  public getCabinsChanged$ = this.getCabinsSource.asObservable();
 
   behaviorSubject: BehaviorSubject<Cabin[]>;
   getUsers(): BehaviorSubject<Cabin[]> {
@@ -36,33 +27,8 @@ export class CabinsService {
   }
 
   constructor(private httpClient: HttpClient) {
-    // Iteration 3:
-    // Note: below lines are not needed for Subject or BehaviorSubject
-    // Note RxJS v6 now requires the pipe() method in order to use the operators like share() or map()
-    // share() operator Returns an observable sequence that shares
-    // a single subscription to the underlying sequence. (share is a cheap way to get a hot observable)
-    // Also makes the observable 'Hot' until there are no more subscriptions. Then it becomes 'Cold' and a new 'Subject' is created
-    // this.getCabinsChanged$ = new Observable((observer: any) => this.getCabinsObserver = observer).pipe(share());
   }
 
-  // Iteration 1: raw data return without observables
-  // getCabins(): Cabin[] {
-  //   return CABINS;
-  // }
-
-  // Iteration 2: return the observable directly
-  // getCabins(): Observable<Cabin[]> {
-  //   return this.httpClient.get<Cabin[]>(this.url).pipe(
-  //     map((data: Cabin[]) => {
-  //       console.log(data[0].name);
-  //       return data;
-  //     }),
-  //     // catchError is part of RxJS; takes the error and returns a new observable throwing an error
-  //     catchError(this.handleError)
-  //   );
-  // }
-
-  // Iteration 3 & 4: call next on the observable so anyone subscribing can get the updated data
   getCabins() {
     this.httpClient.get<Cabin[]>(this.url)
       .pipe(
@@ -71,14 +37,9 @@ export class CabinsService {
       )
       .subscribe(data => {
 
-        // Iteration 3: Observable
-        // if (data && this.getCabinsObserver) {
-        //   // additional logic
-        //   this.getCabinsObserver.next(data);
-        // }
-
         // Iteration 4: Subject and BehaviorSubject
         if (data && this.getCabinsSource) {
+          // Execute next on the observable so anyone subscribing can get the updated data
           this.getCabinsSource.next(data);
         }
 
@@ -99,7 +60,7 @@ export class CabinsService {
         `body was: ${error.error}`);
     }
     // return an observable with a user-facing error message
-    return throwError(() => {return 'Something bad happened; please try again later.'});
+    return throwError(() => { return 'Something bad happened; please try again later.' });
   }
 
 }
