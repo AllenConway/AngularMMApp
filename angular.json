@@ -104,7 +104,6 @@
       }
     }
   },
-  "defaultProject": "angular-mm-app",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
