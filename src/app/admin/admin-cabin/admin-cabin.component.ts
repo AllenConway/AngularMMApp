@@ -71,7 +71,7 @@ export class AdminCabinComponent implements OnInit {
       if (result) {
         // Todo: in order for the other areas of the app that use Cabin data to be updated,
         // the observable in cabins.service.ts must be updated to call next(). Needs an update method.
-        // Legitamitely, thhis would happen via an http call
+        // Legitamitely, this would happen via an http call
 
         // Deselect the row now that the edit operation has completed
         this.selection.toggle(this.rowSelected);

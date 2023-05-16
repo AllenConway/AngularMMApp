@@ -24,7 +24,7 @@ header {
 /* Container for flexboxes */
 section {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   /* Calculate the height of your footer element dynamically to adjust the height */
   min-height: calc(100vh - #{$header-height} - #{$footer-height});
 }
@@ -64,6 +64,7 @@ main {
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 @media (max-width: 600px) {
   section {
+    flex-wrap: wrap;
     flex-direction: column;
   }
 }

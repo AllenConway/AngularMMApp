@@ -39,6 +39,7 @@ export class CabinsService {
 
         // Iteration 4: Subject and BehaviorSubject
         if (data && this.getCabinsSource) {
+          // ...Execute any additional presetation layer logic, manipulation, here or donwstream as required
           // Execute next on the observable so anyone subscribing can get the updated data
           this.getCabinsSource.next(data);
         }

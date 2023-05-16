@@ -13,7 +13,7 @@ describe('CabinsService', () => {
 
   // Get the service from the root injector via the TestBed
   let cabinsService: CabinsService;
-  beforeEach(() => { cabinsService = TestBed.get(CabinsService); });
+  beforeEach(() => { cabinsService = TestBed.inject(CabinsService); });
 
   it('should be created', inject([CabinsService], (service: CabinsService) => {
     expect(service).toBeTruthy();
