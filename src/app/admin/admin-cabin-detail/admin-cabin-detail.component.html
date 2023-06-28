@@ -1,25 +1,25 @@
 <h1 mat-dialog-title>Edit Cabin Information</h1>
 <div mat-dialog-content>
   <p>
-    <mat-form-field appearance="legacy">
+    <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
       <input matInput placeholder="Cabin Name" [(ngModel)]="data.name">
     </mat-form-field>
   </p>
   <p>
-    <mat-form-field appearance="legacy">
+    <mat-form-field appearance="fill">
       <mat-label>Location</mat-label>
       <input matInput placeholder="Location" [(ngModel)]="data.location">
     </mat-form-field>
   </p>
   <p>
-    <mat-form-field appearance="legacy">
+    <mat-form-field appearance="fill">
       <mat-label>Occupancy</mat-label>
       <input matInput placeholder="Occupancy" [(ngModel)]="data.occupancy">
     </mat-form-field>
   </p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onNoClick()" class="button-spacing">Cancel</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
 </div>

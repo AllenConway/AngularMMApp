@@ -13,7 +13,7 @@ export class AppComponent {
   public today: number = Date.now();
 
   ngOnInit() { 
-    this.className = `Visual Studio LIVE! Nashville | Environment: ${environment.name}`;
+    this.className = `Visual Studio LIVE! Microsoft HQ | Environment: ${environment.name}`;
   }
 
 }

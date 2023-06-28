@@ -63,7 +63,7 @@ export class AdminCabinComponent implements OnInit {
 
   openDialog(cabin: Cabin): void {
     const dialogRef = this.dialog.open(AdminCabinDetailComponent, {
-      width: '250px',
+      width: '260px',
       data: Object.assign({}, cabin)
     });
 
