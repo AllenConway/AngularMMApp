@@ -22,17 +22,9 @@ export class CabinListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // Iteration 1: Uses no observables downstream
-    //  this.cabins$ = of(this.cabinsService.getCabins());
-
-    // Iteration 2: Uses returned observable directly
-    // this.cabins$ = this.cabinsService.getCabins();
-
-    // All other iterations using Observables downstream
-    // Note: if out method returned an Observable instead of the Cabin[] data,
-    // we'd be able to leverage auto-subscribe/unsubscribe via the async pipe
+    // We could also leverage auto-subscribe/unsubscribe via the async pipe
+    // by using this.cabins$ = this.cabinsService.getCabinsChanged$
     this.cabinsSubscription = this.cabinsService.getCabinsChanged$.subscribe(data => this.onCabinsLoaded(data));
-    // Note: this should really be in a centralized store and pulled (i.e. ngrx, BehaviorSubject)
     this.cabinsService.getCabins();
   }
 
@@ -44,10 +36,7 @@ export class CabinListComponent implements OnInit, OnDestroy {
   }
 
   onCabinsLoaded(data: Cabin[]) {
-    // Iteration 1: direct viewmodel assignment
-    // this.cabins = data;
-
-    // Iteration 2: make observable of the data
+    // make observable of the data
     this.cabins$ = of(data);
   }
 
