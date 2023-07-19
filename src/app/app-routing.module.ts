@@ -28,7 +28,8 @@ const routes: Routes = [
 @NgModule({
   // Only call RouterModule.forRoot() in the root AppRoutingModule (or the AppModule if that's where you register top level application routes).
   // In any other module, you must call the RouterModule.forChild method to register additional routes.
-  imports: [RouterModule.forRoot(routes, {})],
+  // Must indicate bindToComponentInputs: true to allow @Input() route params component binding
+  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

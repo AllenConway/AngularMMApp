@@ -53,7 +53,8 @@
     Both are responsive, it's just fixed width or not for the container-->
     <div class="container mt-4">
       <!-- router-outlet informs Angular to update the application view with the component for the selected route -->
-      <router-outlet></router-outlet>
+      <!-- using self-closing tags from ng 15-->
+      <router-outlet />
     </div>
   </main>
 

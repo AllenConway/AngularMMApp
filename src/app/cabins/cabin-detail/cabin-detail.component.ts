@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 export class CabinDetailComponent implements OnInit, OnDestroy {
   @Input() cabin: Cabin;
   @Input() greetingMessage: string;
+  @Input() id = ''; // ng16 component route parameter mapping
   cabins: Cabin[];
   private cabinsSubscription: Subscription;
 
@@ -38,8 +39,11 @@ export class CabinDetailComponent implements OnInit, OnDestroy {
   }
 
   getCabin(): void {
-    const id = +this.route.snapshot.paramMap.get('id');  // unary "+" operator which yields a numeric expression
-    this.cabin = this.cabins?.find(c => c.id === id);
+    // using traditional ActivatedRoute to get parameter
+    //const id = +this.route.snapshot.paramMap.get('id');  // unary "+" operator which yields a numeric expression
+
+    // ng16 route input parameters where we can access the private variable already defined streamlining code
+    this.cabin = this.cabins?.find(c => c.id === +this.id);
   }
 
   goBack(): void {
