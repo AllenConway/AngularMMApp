@@ -7,20 +7,23 @@ import { CabinsService } from '../services/cabins.service';
 import { BehaviorSubject } from 'rxjs';
 import { Cabin } from '../models';
 import { CABINS } from '../models/mock-cabins';
+import { signal } from '@angular/core';
 
 describe('CabinListComponent', () => {
   let component: CabinListComponent;
   let fixture: ComponentFixture<CabinListComponent>;
-  let mockCabinsService: MockCabinsService;
+  // let mockCabinsService: MockCabinsService;
+  let mockCabinsSignalService: MockCabinsSignalService;
 
   beforeEach(async () => {
 
-    mockCabinsService = new MockCabinsService();
+    // mockCabinsService = new MockCabinsService();
+    mockCabinsSignalService = new MockCabinsSignalService();
 
     await TestBed.configureTestingModule({
       imports: [HttpClientModule, RouterTestingModule],
       declarations: [ CabinListComponent ],
-      providers: [{provide: CabinsService, useValue: mockCabinsService}]
+      providers: [{provide: CabinsService, useValue: mockCabinsSignalService}]
     })
     .compileComponents();
 
@@ -44,6 +47,16 @@ class MockCabinsService {
 
   getCabins() { 
 
+  }
+
+}
+
+class MockCabinsSignalService {
+
+  public cabinsSignal = signal<Cabin[]>(CABINS);
+
+  getCabins() { 
+    this.cabinsSignal.set(CABINS);
   }
 
 }

@@ -45,6 +45,9 @@ export class ReservationComponent {
   onSubmit() { 
     const reservation = this.reservationDetails;
     this.snackBar.open('Reservation Complete!', 'close');
+  }
+
+  changeDetectionSample() {
     // Manually alert Angular to trigger change detection
     // this.ref.detectChanges();
   }

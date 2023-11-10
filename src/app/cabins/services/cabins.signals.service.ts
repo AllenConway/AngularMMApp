@@ -1,33 +1,17 @@
-
-import { Injectable } from '@angular/core';
-import { Cabin } from '../models/cabin';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { BehaviorSubject, throwError, of, Observable } from 'rxjs';
+import { Injectable, signal } from '@angular/core';
+import { Cabin } from '../models';
+import { Observable, catchError, throwError } from 'rxjs';
 
-// marks a class as available to Injector for creation
-@Injectable(
-  { providedIn: 'root' }  // A6: 'providedIn' property. Allows service to dicatate it's module; Tree Shaking Providers (TSP)
-)
-export class CabinsService {
+@Injectable({
+  providedIn: 'root'
+})
+export class CabinsSignalsService {
 
+  public cabinsSignal = signal<Cabin[]>([]);
   private url = '../../assets/cabins.json';
-  // Use the following line to force an error and generate a 404
-  // private url = '../../assets/blah/cabins.json';
 
-  // BehaviorSubject usage for state
-  private getCabinsSource = new BehaviorSubject<Cabin[]>([]);
-
-  // Make an Observable of the Stream
-  public getCabinsChanged$ = this.getCabinsSource.asObservable();
-
-  behaviorSubject: BehaviorSubject<Cabin[]>;
-  getUsers(): BehaviorSubject<Cabin[]> {
-    return this.behaviorSubject;
-  }
-
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) { }
 
   getCabins() {
     this.httpClient.get<Cabin[]>(this.url)
@@ -36,14 +20,11 @@ export class CabinsService {
         catchError(this.handleError)
       )
       .subscribe(data => {
-
-        // Leverage RxJS and the BehaviorSubject
-        if (data && this.getCabinsSource) {
+        if (data) {
           // ...Execute any additional presetation layer logic, manipulation, here or donwstream as required
-          // Execute next on the observable so anyone subscribing can get the updated data
-          this.getCabinsSource.next(data);
+          // Call set on the Signal so anyone that needs alerted can get the updated data
+          this.cabinsSignal.set(data);
         }
-
       });
   }
 
@@ -63,5 +44,4 @@ export class CabinsService {
     // return an observable with a user-facing error message
     return throwError(() => { return 'Something bad happened; please try again later.' });
   }
-
 }
