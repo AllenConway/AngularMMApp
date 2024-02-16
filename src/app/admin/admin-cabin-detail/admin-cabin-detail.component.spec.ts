@@ -39,6 +39,11 @@ describe('AdminCabinDetailComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should close dialog on no click', () => {
+    component.onNoClick();
+    expect(mockDialogRef.close).toHaveBeenCalled();
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });

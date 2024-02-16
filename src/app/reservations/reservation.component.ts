@@ -47,8 +47,8 @@ export class ReservationComponent {
     this.snackBar.open('Reservation Complete!', 'close');
   }
 
-  changeDetectionSample() {
+  //changeDetectionSample() {
     // Manually alert Angular to trigger change detection
     // this.ref.detectChanges();
-  }
+  //}
 }
