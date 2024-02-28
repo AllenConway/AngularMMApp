@@ -10,10 +10,11 @@ import { Cabin } from '../cabins/models/cabin';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private cabinsService: CabinsService) { }
-
+  constructor(private cabinsService: CabinsService) {
+    this.cabins$ = of([]);
+  }
   cabins$: Observable<Cabin[]>;
-  private cabinsSubscription: Subscription;
+  // private cabinsSubscription: Subscription;
 
   ngOnInit() {
     // As the root/parent componenet, make call to get cabin data that for downstream componenets can be retrieved via BehaviorSubject observable
