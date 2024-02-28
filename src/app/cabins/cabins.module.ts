@@ -5,8 +5,6 @@ import { RouterModule } from '@angular/router';
 import { CabinListComponent } from './cabin-list/cabin-list.component';
 import { CabinDetailComponent } from './cabin-detail/cabin-detail.component';
 import { CabinsRoutingModule } from './cabins-routing.module';
-import { CabinsService } from './';
-
 
 @NgModule({
   imports: [
@@ -19,9 +17,6 @@ import { CabinsService } from './';
   declarations: [
     CabinDetailComponent,
     CabinListComponent,
-  ],
-  providers: [
-    // CabinsService
   ]
 })
 export class CabinsModule { }
