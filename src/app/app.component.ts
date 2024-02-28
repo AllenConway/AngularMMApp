@@ -9,11 +9,11 @@ import { environment } from '../environments/environment';
 export class AppComponent {
   
   public title: string = 'Mountain Cabin Vacations';
-  public className: string = 'Visual Studio LIVE! Las Vegas';
+  public className: string = '';
   public today: number = Date.now();
 
   ngOnInit() { 
-    this.className = `Visual Studio LIVE! Microsoft HQ | Environment: ${environment.name}`;
+    this.className = `Visual Studio LIVE! Las Vegas | Environment: ${environment.name}`;
   }
 
 }

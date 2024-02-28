@@ -56,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-mm-app:build"
+            "buildTarget": "angular-mm-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-mm-app:build:production"
+              "buildTarget": "angular-mm-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-mm-app:build"
+            "buildTarget": "angular-mm-app:build"
           }
         },
         "test": {
