@@ -13,7 +13,7 @@ const authFnGuard: CanMatchFn = (route: Route, segments: UrlSegment[]) => {
 // routes typically have (2) properties
 // path = string for the URL
 // component = which component to load when that route has been requested
-const routes: Routes = [
+export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'cabins', loadChildren: () => import('./cabins/cabins.module').then(m => m.CabinsModule), canLoad: [AuthGuard]},
@@ -24,12 +24,12 @@ const routes: Routes = [
 ];
 
 
-
-@NgModule({
-  // Only call RouterModule.forRoot() in the root AppRoutingModule (or the AppModule if that's where you register top level application routes).
-  // In any other module, you must call the RouterModule.forChild method to register additional routes.
-  // Must indicate bindToComponentInputs: true to allow @Input() route params component binding
-  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true })],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+// Old non-standalone way, using ng Modules for routing
+// @NgModule({
+//   // Only call RouterModule.forRoot() in the root AppRoutingModule (or the AppModule if that's where you register top level application routes).
+//   // In any other module, you must call the RouterModule.forChild method to register additional routes.
+//   // Must indicate bindToComponentInputs: true to allow @Input() route params component binding
+//   imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true })],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule { }
