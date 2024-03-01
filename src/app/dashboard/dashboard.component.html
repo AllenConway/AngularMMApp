@@ -3,7 +3,10 @@
     <h3>
       Welcome to Mountain Cabin Vacations
     </h3>
-    <ng-container *ngIf="(cabins$ | async) as cabins; else loading">
+    <!-- Use the async pipe in ng to auto subscribe/unsububscribe.
+    It will wait until cabins$ | async has evaluated and bind to 'cabins' variable -->
+    <!-- <ng-container *ngIf="(cabins$ | async) as cabins; else loading"> -->
+    @if(cabins$ | async; as cabins) {
       <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true">
         <ng-template ngbSlide *ngFor="let cabin of cabins">
           <img src="{{cabin.mainImageUrl}}" alt="{{cabin.name}}" class="cabin-image">
@@ -13,7 +16,10 @@
           </div>
         </ng-template>
       </ngb-carousel>
-    </ng-container>
+    }
+    @else {
+      loading
+    }
   </div>
   <ng-template #loading>Loading User Data...</ng-template>
 </div>

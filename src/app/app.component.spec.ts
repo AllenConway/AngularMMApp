@@ -12,9 +12,6 @@ describe('AppComponent', () => {
         MatMenuModule,
         MatTableModule
       ],
-      declarations: [
-        AppComponent
-      ],
     }).compileComponents();
   }));
   it('should create the app', waitForAsync(() => {

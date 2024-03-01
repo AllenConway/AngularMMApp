@@ -7,7 +7,9 @@ import { BehaviorSubject, throwError, of, Observable } from 'rxjs';
 
 // marks a class as available to Injector for creation
 @Injectable(
-  { providedIn: 'root' }  // A6: 'providedIn' property. Allows service to dicatate it's module; Tree Shaking Providers (TSP)
+  // A6: 'providedIn' property. service becomes available as a singleton for the entire application
+  // and can be injected into any part of your app; Tree Shaking Providers (TSP)
+  { providedIn: 'root' }  
 )
 export class CabinsService {
 

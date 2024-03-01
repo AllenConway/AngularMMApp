@@ -34,7 +34,7 @@ describe('DashboardComponent', () => {
 
   it('should call getCabins on init', () => {
     const cabinsService = TestBed.inject(CabinsService);
-    spyOn(cabinsService, 'getCabins').and.callThrough();
+    spyOn(cabinsService, 'getCabins');
     component.ngOnInit();
     expect(cabinsService.getCabins).toHaveBeenCalled();
   });

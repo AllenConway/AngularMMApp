@@ -1,17 +1,25 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Activity } from './models/activity';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-activites',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatSnackBarModule
+  ],
   templateUrl: './activites.component.html',
   styleUrls: ['./activites.component.scss']
 })
 export class ActivitesComponent {
 
   public activites: Activity[] = [];
+
+  constructor(private snackBar: MatSnackBar) {
+    
+  }
 
   ngOnInit() { 
     this.activites = [
@@ -25,7 +33,7 @@ export class ActivitesComponent {
   }
 
   selectActivity(activity: Activity) {
-    
+    this.snackBar.open(`Stop by the activities desk to book a ${activity.name} reservation!`, 'close');
   }
 
 }
