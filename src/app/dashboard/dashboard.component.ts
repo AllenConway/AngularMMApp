@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     // As the root/parent componenet, make call to get cabin data that for downstream componenets can be retrieved via BehaviorSubject observable
     this.cabinsService.getCabins();
-    // Leveraging an async pipe, so direct subscription not required
+    // Leveraging an async pipe, so direct subscription (uses auto-subscribe/unsubscribe) not required
     // this.cabinsSubscription = this.cabinsService.getCabinsChanged$.subscribe(data => this.onCabinsLoaded(data));
     this.cabins$ = this.cabinsService.getCabinsChanged$;
   }

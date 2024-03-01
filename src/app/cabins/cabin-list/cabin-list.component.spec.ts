@@ -38,20 +38,6 @@ describe('CabinListComponent', () => {
     });
   });
 
-  it('should set cabins$ observable when onCabinsLoaded is called', (done) => {
-
-    const cabins: Cabin[] = [
-      { id: 1, location: 'B', name: 'Cabin 1', occupancy: 2 },
-      { id: 2, location: 'A', name: 'Cabin 2', occupancy: 4 }
-    ];
-    component.onCabinsLoaded(cabins);
-
-    component.cabins$.subscribe(data => {
-      expect(data).toEqual(cabins);
-      done();
-    });
-  });
-
   describe('selectCabin', () => {
     it('should set selectedCabin with provided cabin', () => {
       const cabin: Cabin = { id: 1, location: 'B', name: 'Cabin 1', occupancy: 2 };

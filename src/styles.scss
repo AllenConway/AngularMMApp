@@ -135,9 +135,15 @@ ul {
     background-color: #555C62;
   }
 
-  .no-hover-effect.mat-button.mat-primary .mat-button-focus-overlay,
+.no-hover-effect.mat-button.mat-primary .mat-button-focus-overlay,
 .no-hover-effect.mat-button.mat-accent .mat-button-focus-overlay,
 .no-hover-effect.mat-button.mat-warn .mat-button-focus-overlay
 {
   background-color: green;
+}
+
+// Angular Material Snackbar overrides
+.mat-mdc-snack-bar-container {
+  position: relative !important;
+  bottom: 3rem !important;
 }
