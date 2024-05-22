@@ -7,7 +7,6 @@ import { MatCardModule } from '@angular/material/card';
   selector: 'app-specials',
   standalone: true,
   imports: [
-    CommonModule,
     MatButtonModule,
     MatCardModule
   ],

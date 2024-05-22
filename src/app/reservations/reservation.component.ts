@@ -15,7 +15,6 @@ import { CABINS } from '../cabins/models/mock-cabins';
   selector: 'app-reservation',
   standalone: true,
   imports: [
-    CommonModule,
     FormsModule,
     MatNativeDateModule,
     MatDatepickerModule,
