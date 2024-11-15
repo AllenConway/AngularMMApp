@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DashboardComponent } from './dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CabinsService } from '../cabins/services/cabins.service';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Cabin } from '../cabins/models';
 import { of } from 'rxjs';
 
@@ -12,13 +12,10 @@ describe('DashboardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule,
-        NgbModule
-      ],
-      declarations: [ DashboardComponent ],
-      providers: [ CabinsService ]
-    })
+    declarations: [DashboardComponent],
+    imports: [NgbModule],
+    providers: [CabinsService, provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
   }));
 

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { CabinListComponent } from './cabin-list.component';
@@ -21,10 +21,10 @@ describe('CabinListComponent', () => {
     mockCabinsSignalService = new MockCabinsSignalService();
 
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule, RouterTestingModule],
-      declarations: [ CabinListComponent ],
-      providers: [{provide: CabinsService, useValue: mockCabinsSignalService}]
-    })
+    declarations: [CabinListComponent],
+    imports: [RouterTestingModule],
+    providers: [{ provide: CabinsService, useValue: mockCabinsSignalService }, provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(CabinListComponent);
