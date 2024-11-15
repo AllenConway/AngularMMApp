@@ -1,14 +1,14 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { CabinsService } from './cabins.service';
 import { Cabin } from '../models/cabin';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('CabinsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      providers: [CabinsService]
-    });
+    imports: [],
+    providers: [CabinsService, provideHttpClient(withInterceptorsFromDi())]
+});
   });
 
   // Get the service from the root injector via the TestBed

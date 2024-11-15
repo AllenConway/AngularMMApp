@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CabinDetailComponent } from './cabin-detail.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CabinsService } from '../services/cabins.service';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Cabin } from '../models';
 import { Location } from '@angular/common';
 
@@ -14,12 +14,11 @@ describe('CabinDetailComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, RouterTestingModule, FormsModule],
-      declarations: [CabinDetailComponent],
-      providers: [CabinsService, 
-      { provide: Location, useClass: SpyLocation }
-    ]
-    })
+    declarations: [CabinDetailComponent],
+    imports: [RouterTestingModule, FormsModule],
+    providers: [CabinsService,
+        { provide: Location, useClass: SpyLocation }, provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
   }));
 
