@@ -14,11 +14,10 @@ describe('CabinDetailComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-    declarations: [CabinDetailComponent],
-    imports: [RouterTestingModule, FormsModule],
-    providers: [CabinsService,
+      imports: [RouterTestingModule, FormsModule, CabinDetailComponent],
+      providers: [CabinsService,
         { provide: Location, useClass: SpyLocation }, provideHttpClient(withInterceptorsFromDi())]
-})
+    })
     .compileComponents();
   }));
 

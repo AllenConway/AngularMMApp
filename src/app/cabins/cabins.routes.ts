@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { CabinDetailComponent } from './cabin-detail/cabin-detail.component';
 import { CabinListComponent } from './cabin-list/cabin-list.component';
 
-const routes: Routes = [
+export const cabinsRoutes: Routes = [
   {
     path: '',
     component: CabinListComponent
@@ -13,9 +12,3 @@ const routes: Routes = [
     component: CabinDetailComponent
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class CabinsRoutingModule { }

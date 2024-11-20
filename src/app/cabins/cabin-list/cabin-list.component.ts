@@ -1,11 +1,15 @@
 import { Component, OnInit, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Cabin } from '../models/cabin';
 import { CABINS } from '../models/mock-cabins';
 import { CabinsSignalsService } from '../services/cabins.signals.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cabin-list',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './cabin-list.component.html',
   styleUrls: ['./cabin-list.component.scss']
 })

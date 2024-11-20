@@ -4,9 +4,13 @@ import { Location } from '@angular/common';
 import { Cabin } from '../models/cabin';
 import { CabinsService } from '../services/cabins.service';
 import { Subscription } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cabin-detail',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './cabin-detail.component.html',
   styleUrls: ['./cabin-detail.component.scss']
 })
