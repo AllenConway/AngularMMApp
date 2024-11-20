@@ -4,7 +4,6 @@ import { DashboardComponent } from './dashboard.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CabinsModule } from '../cabins/cabins.module';
 
 @NgModule({
   declarations: [DashboardComponent],
