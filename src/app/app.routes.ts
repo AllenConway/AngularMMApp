@@ -18,7 +18,7 @@ const authFnGuard: CanMatchFn = (route: Route, segments: UrlSegment[]) => {
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'cabins', children: cabinsRoutes, canLoad: [AuthGuard]},
+  { path: 'cabins', loadChildren: () => import('./cabins/cabins.routes').then(m => m.cabinsRoutes), canLoad: [AuthGuard] },
   {path: 'admin-cabin', component: AdminCabinComponent, canMatch: [authFnGuard]},
   {path: 'activites', loadComponent: () => import('./activites/activites.component').then(m => m.ActivitesComponent)},
   {path: 'reservations', loadComponent: () => import('./reservations/reservation.component').then(m => m.ReservationComponent)},
