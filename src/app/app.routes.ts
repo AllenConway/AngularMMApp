@@ -4,7 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminCabinComponent } from './admin/admin-cabin/admin-cabin.component';
 import { AuthGuard } from './@core/auth/auth.guard';
 import { CabinListComponent } from './cabins/cabin-list/cabin-list.component';
-import { cabinsRoutes } from './cabins/cabins-routing';
+import { cabinsRoutes } from './cabins/cabins.routes';
 
 const authFnGuard: CanMatchFn = (route: Route, segments: UrlSegment[]) => { 
   // logic to determine if route is authorized
