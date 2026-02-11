@@ -3,9 +3,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Cabin } from '../../cabins/models/cabin';
 
 @Component({
-  selector: 'app-admin-cabin-detail',
-  templateUrl: './admin-cabin-detail.component.html',
-  styleUrls: ['./admin-cabin-detail.component.scss']
+    selector: 'app-admin-cabin-detail',
+    templateUrl: './admin-cabin-detail.component.html',
+    styleUrls: ['./admin-cabin-detail.component.scss'],
+    standalone: false
 })
 export class AdminCabinDetailComponent {
 

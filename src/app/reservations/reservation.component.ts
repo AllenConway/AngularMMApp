@@ -13,22 +13,20 @@ import { CABINS } from '../cabins/models/mock-cabins';
 import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-reservation',
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatNativeDateModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatSnackBarModule,
-    NgFor
-  ],
-  templateUrl: './reservation.component.html',
-  styleUrls: ['./reservation.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-reservation',
+    imports: [
+        CommonModule,
+        FormsModule,
+        MatNativeDateModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatSnackBarModule,
+        NgFor
+    ],
+    templateUrl: './reservation.component.html',
+    styleUrls: ['./reservation.component.scss']
 })
 export class ReservationComponent {
   public reservationDetails: Reservation;
