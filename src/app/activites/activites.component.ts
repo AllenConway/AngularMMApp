@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Activity } from './models/activity';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
@@ -7,10 +7,9 @@ import { RouterModule } from '@angular/router';
 @Component({
     selector: 'app-activites',
     imports: [
-        CommonModule,
-        MatSnackBarModule,
-        RouterModule
-    ],
+    MatSnackBarModule,
+    RouterModule
+],
     templateUrl: './activites.component.html',
     styleUrls: ['./activites.component.scss']
 })

@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Observable } from 'rxjs';
 import { Cabin } from '../models/cabin';
 import { CABINS } from '../models/mock-cabins';
@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-cabin-list',
-    imports: [CommonModule, RouterModule],
+    imports: [RouterModule],
     templateUrl: './cabin-list.component.html',
     styleUrls: ['./cabin-list.component.scss']
 })

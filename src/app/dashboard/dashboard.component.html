@@ -8,18 +8,20 @@
     <!-- <ng-container *ngIf="(cabins$ | async) as cabins; else loading"> -->
     @if(cabins$ | async; as cabins) {
       <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true">
-        <ng-template ngbSlide *ngFor="let cabin of cabins">
-          <img src="{{cabin.mainImageUrl}}" alt="{{cabin.name}}" class="cabin-image">
-          <div class="carousel-caption">
-            <h3>{{cabin.name}}</h3>
-            <p>{{cabin.location}}</p>
-          </div>
-        </ng-template>
+        @for (cabin of cabins; track cabin) {
+          <ng-template ngbSlide>
+            <img src="{{cabin.mainImageUrl}}" alt="{{cabin.name}}" class="cabin-image">
+            <div class="carousel-caption">
+              <h3>{{cabin.name}}</h3>
+              <p>{{cabin.location}}</p>
+            </div>
+          </ng-template>
+        }
       </ngb-carousel>
     }
     @else {
-      loading
-    }
-  </div>
-  <ng-template #loading>Loading User Data...</ng-template>
+    loading
+  }
+</div>
+<ng-template #loading>Loading User Data...</ng-template>
 </div>

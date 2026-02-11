@@ -2,14 +2,16 @@
 @if(cabinsSignal(); as cabins) {
   <p>Please select a cabin below for its details</p>
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let cabin of cabins" (click)="selectCabin(cabin)">
-      <a routerLink="/cabins/detail/{{cabin.id}}">
-        <span><i class="material-icons">cabin</i></span> {{cabin.name}}
-      </a>
-    </li>
+    @for (cabin of cabins; track cabin) {
+      <li class="list-group-item" (click)="selectCabin(cabin)">
+        <a routerLink="/cabins/detail/{{cabin.id}}">
+          <span><i class="material-icons">cabin</i></span> {{cabin.name}}
+        </a>
+      </li>
+    }
   </ul>
 }
 @else {
-  loading
+loading
 }
 <ng-template #loading>Loading User Data...</ng-template>
