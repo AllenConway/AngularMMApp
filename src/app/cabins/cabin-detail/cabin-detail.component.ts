@@ -8,11 +8,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-cabin-detail',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './cabin-detail.component.html',
-  styleUrls: ['./cabin-detail.component.scss']
+    selector: 'app-cabin-detail',
+    imports: [CommonModule, RouterModule],
+    templateUrl: './cabin-detail.component.html',
+    styleUrls: ['./cabin-detail.component.scss']
 })
 export class CabinDetailComponent implements OnInit, OnDestroy {
   @Input() cabin: Cabin;

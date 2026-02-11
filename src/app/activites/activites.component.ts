@@ -5,15 +5,14 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-activites',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatSnackBarModule,
-    RouterModule
-  ],
-  templateUrl: './activites.component.html',
-  styleUrls: ['./activites.component.scss']
+    selector: 'app-activites',
+    imports: [
+        CommonModule,
+        MatSnackBarModule,
+        RouterModule
+    ],
+    templateUrl: './activites.component.html',
+    styleUrls: ['./activites.component.scss']
 })
 export class ActivitesComponent {
 

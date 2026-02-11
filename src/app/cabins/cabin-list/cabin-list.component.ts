@@ -7,11 +7,10 @@ import { CabinsSignalsService } from '../services/cabins.signals.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-cabin-list',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './cabin-list.component.html',
-  styleUrls: ['./cabin-list.component.scss']
+    selector: 'app-cabin-list',
+    imports: [CommonModule, RouterModule],
+    templateUrl: './cabin-list.component.html',
+    styleUrls: ['./cabin-list.component.scss']
 })
 export class CabinListComponent implements OnInit {
 

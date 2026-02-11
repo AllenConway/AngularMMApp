@@ -10,9 +10,10 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { AdminCabinDetailComponent } from '../admin-cabin-detail/admin-cabin-detail.component';
 
 @Component({
-  selector: 'app-admin-cabin',
-  templateUrl: './admin-cabin.component.html',
-  styleUrls: ['./admin-cabin.component.scss']
+    selector: 'app-admin-cabin',
+    templateUrl: './admin-cabin.component.html',
+    styleUrls: ['./admin-cabin.component.scss'],
+    standalone: false
 })
 export class AdminCabinComponent implements OnInit {
 

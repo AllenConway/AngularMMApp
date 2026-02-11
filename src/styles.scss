@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@use './styles.variables.scss' as vars;
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-@import './styles.variables.scss';
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 * {
@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: $ff-base;
+  font-family: vars.$ff-base;
 }
 
 /* Style the header */
@@ -18,7 +18,7 @@ header {
   text-align: center;
   font-size: 35px;
   color: white;
-  height: $header-height;
+  height: vars.$header-height;
 }
 
 /* Container for flexboxes */
@@ -26,7 +26,7 @@ section {
   display: flex;
   flex-wrap: nowrap;
   /* Calculate the height of your footer element dynamically to adjust the height */
-  min-height: calc(100vh - #{$header-height} - #{$footer-height});
+  min-height: calc(100vh - #{vars.$header-height} - #{vars.$footer-height});
 }
 
 /* Style the footer */
@@ -34,11 +34,11 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
-  height: $footer-height;
+  height: vars.$footer-height;
   background-color: lightgrey;
   color: #4A387D;
   align-items: center;
-  border-top: 1px solid $mountain-green;
+  border-top: 1px solid vars.$mountain-green;
 }
 
 /* Style the navigation menu */
