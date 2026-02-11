@@ -15,14 +15,14 @@ import { RouterModule } from '@angular/router';
 })
 export class ActivitesComponent {
 
-  public activites: Activity[] = [];
+  public activities: Activity[] = [];
 
   constructor(private snackBar: MatSnackBar) {
     
   }
 
   ngOnInit() { 
-    this.activites = [
+    this.activities = [
       { id: 1, name: 'Swimming', icon: 'pool', location: 'Main Pool' },
       { id: 2, name: 'Exercise', icon: 'fitness_center', location: 'Fitness Center' },
       { id: 3, name: 'Hiking', icon: 'hiking', location: 'Mountain Trail' },
