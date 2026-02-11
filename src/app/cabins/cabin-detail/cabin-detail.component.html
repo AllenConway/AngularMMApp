@@ -1,24 +1,28 @@
-<div *ngIf="cabin">
-  <div class="card">
-    <div class="card-header">
-      <h2>{{ cabin.name }} Cabin Details</h2>
-    </div>
-    <div class="card-body">
-      <!-- Placeholder; no element is created int he DOM using ng-template-->
-      <ng-template>
-        <span>ID: </span>{{ cabin.id }}
-      </ng-template>
-      <div>
+@if (cabin) {
+  <div>
+    <div class="card">
+      <div class="card-header">
+        <h2>{{ cabin.name }} Cabin Details</h2>
+      </div>
+      <div class="card-body">
+        <!-- Placeholder; no element is created int he DOM using ng-template-->
+        <ng-template>
+          <span>ID: </span>{{ cabin.id }}
+        </ng-template>
+        <div>
           <strong>Occupancy:</strong> {{ cabin.occupancy }} <br/>
           <strong>Location:</strong> {{ cabin.location }} <br/>
-      </div>
-      <div class="grid-container grid-container--fit">
-        <div *ngFor="let image of cabin.images" class="m-3">
-            <img src="{{image.url}}" alt="{{cabin.name}}" class="cabin-image">
-            <!-- <img ngSrc="{{image.url}}" alt="{{cabin.name}}" class="cabin-image" width="600" height="400" priority> -->
         </div>
+        <div class="grid-container grid-container--fit">
+          @for (image of cabin.images; track image) {
+            <div class="m-3">
+              <img src="{{image.url}}" alt="{{cabin.name}}" class="cabin-image">
+              <!-- <img ngSrc="{{image.url}}" alt="{{cabin.name}}" class="cabin-image" width="600" height="400" priority> -->
+            </div>
+          }
+        </div>
+        <button (click)="goBack()">Go Back</button>
       </div>
-      <button (click)="goBack()">Go Back</button>
     </div>
   </div>
-</div>
+}

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,21 +10,19 @@ import { Reservation } from './models/reservation';
 import { FormsModule } from '@angular/forms';
 import { Cabin } from '../cabins/models';
 import { CABINS } from '../cabins/models/mock-cabins';
-import { NgFor } from '@angular/common';
+
 
 @Component({
     selector: 'app-reservation',
     imports: [
-        CommonModule,
-        FormsModule,
-        MatNativeDateModule,
-        MatDatepickerModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatSnackBarModule,
-        NgFor
-    ],
+    FormsModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSnackBarModule
+],
     templateUrl: './reservation.component.html',
     styleUrls: ['./reservation.component.scss']
 })
