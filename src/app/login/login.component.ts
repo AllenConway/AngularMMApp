@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  get f() {
+  get formControls() {
     return this.loginForm.controls;
   }
 
@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
     const success = this.authService.login(username, password);
     
     if (success) {
-      console.log('Login successful for user:', username);
       this.router.navigate(['/dashboard']);
     } else {
       this.loginFailed = true;
