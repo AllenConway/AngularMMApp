@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../@core/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,12 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
+  loginFailed = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -31,20 +34,26 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
+    this.loginFailed = false;
 
     if (this.loginForm.invalid) {
       return;
     }
 
-    // TODO: Implement actual authentication logic
-    console.log('Login attempt with:', this.loginForm.value);
+    const { username, password } = this.loginForm.value;
+    const success = this.authService.login(username, password);
     
-    // For now, just navigate to dashboard
-    this.router.navigate(['/dashboard']);
+    if (success) {
+      console.log('Login successful for user:', username);
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.loginFailed = true;
+    }
   }
 
   onReset(): void {
     this.submitted = false;
+    this.loginFailed = false;
     this.loginForm.reset();
   }
 }

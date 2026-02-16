@@ -2,6 +2,10 @@
   <div class="login-card">
     <h2 class="text-center mb-4">Login</h2>
     
+    <div *ngIf="loginFailed" class="alert alert-danger" role="alert">
+      Login failed. Please try again.
+    </div>
+    
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group mb-3">
         <label for="username">Username</label>
