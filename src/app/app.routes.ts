@@ -5,6 +5,7 @@ import { AdminCabinComponent } from './admin/admin-cabin/admin-cabin.component';
 import { AuthGuard } from './@core/auth/auth.guard';
 import { CabinListComponent } from './cabins/cabin-list/cabin-list.component';
 import { cabinsRoutes } from './cabins/cabins.routes';
+import { LoginComponent } from './login/login.component';
 
 const authFnGuard: CanMatchFn = (route: Route, segments: UrlSegment[]) => { 
   // logic to determine if route is authorized
@@ -17,6 +18,7 @@ const authFnGuard: CanMatchFn = (route: Route, segments: UrlSegment[]) => {
 // component = which component to load when that route has been requested
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
+  {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
   { path: 'cabins', loadChildren: () => import('./cabins/cabins.routes').then(m => m.cabinsRoutes), canLoad: [AuthGuard] },
   {path: 'admin-cabin', component: AdminCabinComponent, canMatch: [authFnGuard]},
