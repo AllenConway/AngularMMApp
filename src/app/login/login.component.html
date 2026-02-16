@@ -1,0 +1,46 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="text-center mb-4">Login</h2>
+    
+    <div *ngIf="loginFailed" class="alert alert-danger" role="alert">
+      Login failed. Please try again.
+    </div>
+    
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group mb-3">
+        <label for="username">Username</label>
+        <input 
+          type="text" 
+          id="username"
+          formControlName="username" 
+          class="form-control" 
+          [ngClass]="{ 'is-invalid': submitted && formControls['username'].errors }"
+        />
+        <div *ngIf="submitted && formControls['username'].errors" class="invalid-feedback">
+          <div *ngIf="formControls['username'].errors['required']">Username is required</div>
+          <div *ngIf="formControls['username'].errors['minlength']">Username must be at least 3 characters</div>
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password"
+          formControlName="password" 
+          class="form-control" 
+          [ngClass]="{ 'is-invalid': submitted && formControls['password'].errors }"
+        />
+        <div *ngIf="submitted && formControls['password'].errors" class="invalid-feedback">
+          <div *ngIf="formControls['password'].errors['required']">Password is required</div>
+          <div *ngIf="formControls['password'].errors['minlength']">Password must be at least 6 characters</div>
+        </div>
+      </div>
+
+      <div class="form-group d-flex gap-2">
+        <button type="submit" class="btn btn-primary flex-fill">Login</button>
+        <button type="button" class="btn btn-secondary flex-fill" (click)="onReset()">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>
