@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync, tick, fakeAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AdminCabinDetailComponent } from './admin-cabin-detail.component';
 import { MatInputModule } from '@angular/material/input';
@@ -109,17 +109,17 @@ describe('AdminCabinDetailComponent', () => {
       expect(title.textContent).toBe('Edit Cabin Information');
     });
 
-    it('should update component data when input values change', fakeAsync(() => {
-      fixture.detectChanges();
-      tick();
-      
-      const nameInput = fixture.nativeElement.querySelector('input[placeholder="Cabin Name"]') as HTMLInputElement;
-      nameInput.value = 'Updated Cabin';
-      nameInput.dispatchEvent(new Event('input'));
-      fixture.detectChanges();
-      tick();
+    it('should update component data when input values change', waitForAsync(() => {
+      fixture.whenStable().then(() => {
+        const nameInput = fixture.nativeElement.querySelector('input[placeholder="Cabin Name"]') as HTMLInputElement;
+        nameInput.value = 'Updated Cabin';
+        nameInput.dispatchEvent(new Event('input'));
+        fixture.detectChanges();
 
-      expect(component.data.name).toBe('Updated Cabin');
+        fixture.whenStable().then(() => {
+          expect(component.data.name).toBe('Updated Cabin');
+        });
+      });
     }));
   });
 
@@ -164,6 +164,9 @@ describe('AdminCabinDetailComponent', () => {
   });
 
   // Edge Cases and Negative Tests
+  // Note: These tests verify current component behavior without validation.
+  // If business rules require validation (e.g., positive occupancy only),
+  // the component should be updated with validators and these tests adjusted.
   describe('Edge Cases and Negative Tests', () => {
     it('should handle empty cabin data object', waitForAsync(() => {
       TestBed.resetTestingModule();
