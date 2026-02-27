@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReservationComponent } from './reservation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReservationsService } from './reservations.service';
 
 describe('ReservationComponent', () => {
   let component: ReservationComponent;
@@ -34,7 +35,8 @@ describe('ReservationComponent', () => {
         ReservationComponent // Import the standalone component here
       ],
       providers: [
-        { provide: MatSnackBar, useValue: { open: jasmine.createSpy('open') } }
+        { provide: MatSnackBar, useValue: { open: jasmine.createSpy('open') } },
+        ReservationsService
       ]
     })
       .compileComponents();
@@ -62,5 +64,19 @@ describe('ReservationComponent', () => {
     expect(component.reservationDetails).toEqual({ id: 1, lastName: 'Doe', firstName: 'John', checkinDate, checkoutDate, cabinId: 1, occupancy: 2 });
     expect(component.reservationDetails.checkinDate.getTime()).toEqual(checkinDate.getTime());
     expect(component.reservationDetails.checkoutDate.getTime()).toEqual(checkoutDate.getTime());
+  });
+
+  it('should set todaysReservationCount on init', () => {
+    const reservationsService = TestBed.inject(ReservationsService);
+    spyOn(reservationsService, 'getTodaysReservationCount').and.returnValue(4);
+    component.ngOnInit();
+    expect(component.todaysReservationCount).toBe(4);
+  });
+
+  it('should display todaysReservationCount in the template', () => {
+    const reservationsService = TestBed.inject(ReservationsService);
+    const expectedCount = reservationsService.getTodaysReservationCount();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.reservation-count-value')?.textContent?.trim()).toBe(String(expectedCount));
   });
 });

@@ -76,10 +76,10 @@ describe('DashboardComponent', () => {
   });
 
   it('should display todaysReservationCount in the template', () => {
-    component.todaysReservationCount = 5;
-    fixture.detectChanges();
+    const reservationsService = TestBed.inject(ReservationsService);
+    const expectedCount = reservationsService.getTodaysReservationCount();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.reservation-count-value')?.textContent?.trim()).toBe('5');
+    expect(compiled.querySelector('.reservation-count-value')?.textContent?.trim()).toBe(String(expectedCount));
   });
   
 });
