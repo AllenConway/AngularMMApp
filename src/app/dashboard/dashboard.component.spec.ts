@@ -5,6 +5,7 @@ import { CabinsService } from '../cabins/services/cabins.service';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Cabin } from '../cabins/models';
 import { of } from 'rxjs';
+import { ReservationsService } from '../reservations/reservations.service';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -14,7 +15,7 @@ describe('DashboardComponent', () => {
     TestBed.configureTestingModule({
     declarations: [DashboardComponent],
     imports: [NgbModule],
-    providers: [CabinsService, provideHttpClient(withInterceptorsFromDi())]
+    providers: [CabinsService, ReservationsService, provideHttpClient(withInterceptorsFromDi())]
 })
     .compileComponents();
   }));
@@ -65,6 +66,20 @@ describe('DashboardComponent', () => {
     component.cabins$.subscribe(cabins => {
       expect(cabins).toEqual(cabinsData);
     });
+  });
+
+  it('should set todaysReservationCount on init', () => {
+    const reservationsService = TestBed.inject(ReservationsService);
+    spyOn(reservationsService, 'getTodaysReservationCount').and.returnValue(3);
+    component.ngOnInit();
+    expect(component.todaysReservationCount).toBe(3);
+  });
+
+  it('should display todaysReservationCount in the template', () => {
+    component.todaysReservationCount = 5;
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.reservation-count-value')?.textContent?.trim()).toBe('5');
   });
   
 });
