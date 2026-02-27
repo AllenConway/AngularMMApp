@@ -1,3 +1,7 @@
+<div class="reservation-count-card">
+  <span class="reservation-count-label">Today's Reservations</span>
+  <span class="reservation-count-value">{{ todaysReservationCount }}</span>
+</div>
 <h3>Please enter cabin reservation details below</h3>
 <div class="input-form">
   <form (ngSubmit)="onSubmit()" #reservationForm="ngForm">

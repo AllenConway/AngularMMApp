@@ -10,6 +10,7 @@ import { Reservation } from './models/reservation';
 import { FormsModule } from '@angular/forms';
 import { Cabin } from '../cabins/models';
 import { CABINS } from '../cabins/models/mock-cabins';
+import { ReservationsService } from './reservations.service';
 
 
 @Component({
@@ -30,14 +31,16 @@ export class ReservationComponent {
   public reservationDetails: Reservation;
   public cabins: Cabin[];
   public occupancy =  Array.from(Array(12).keys(), item => item + 1);
+  public todaysReservationCount: number = 0;
 
-  constructor(private snackBar: MatSnackBar, private ref: ChangeDetectorRef) {
+  constructor(private snackBar: MatSnackBar, private ref: ChangeDetectorRef, private reservationsService: ReservationsService) {
     
   }
 
   ngOnInit() { 
     this.reservationDetails = { id: 0, lastName: '', firstName: '', checkinDate: null, checkoutDate: null, cabinId: 0, occupancy: 0 }
     this.cabins = CABINS;
+    this.todaysReservationCount = this.reservationsService.getTodaysReservationCount();
   }
 
   onSubmit() { 
